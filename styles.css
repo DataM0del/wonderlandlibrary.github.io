@@ -26,7 +26,6 @@ h1 {
     background: -webkit-linear-gradient(left, #2193b0, #ba6ded);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 10px #fff, 0 0 20px #7cfffb, 0 0 30px #7cfffb, 0 0 40px #7cfffb, 0 0 50px #7cfffb, 0 0 60px #7cfffb, 0 0 70px #7cfffb;
 }
 
 .button-grid {
