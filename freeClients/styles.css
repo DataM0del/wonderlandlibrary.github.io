@@ -28,6 +28,12 @@ h1 {
     -webkit-text-fill-color: transparent;
 }
 
+h3 {
+    background: -webkit-linear-gradient(right, #ffffff, #e6e6e6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .button-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -63,4 +69,26 @@ h1 {
     font-weight: 500;
     color: #ccc;
     margin-top: 5px;
+}
+
+.back-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #404040;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+}
+
+.back-button:hover {
+    background-color: #555;
+}
+
+.back-button:active {
+    background-color: #777;
 }
