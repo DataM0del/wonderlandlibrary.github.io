@@ -8,13 +8,22 @@ document.addEventListener('DOMContentLoaded', async function() {
       }
     })();
 
+    const folderURL = (() => {
+      switch (document.title) {
+        case "Client Sources":
+          return "https://github.com/WonderlandLibrary/client-sources/tree/main/sources";
+        case "Client JARs":
+          return "https://github.com/WonderlandLibrary/client-jars/tree/main/jars";
+      }
+    })();
+
     // Buttons
     const response = await fetchWebsiteContent(listURL);
     const clients = response.split(/\r?\n|\r|\n/g);
     let output = [];
 
     for (let i = 0; i < clients.length; i++) {
-      output[i] = {name: clients[i], url: "https://google.com"};
+      output[i] = {name: clients[i], url: `${folderURL}/${clients[i]}/`};
     }
 
     // Get the button grid container
