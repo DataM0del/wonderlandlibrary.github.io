@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     const listURL = (() => {
       switch (document.title) {
         case "Client Sources":
@@ -9,21 +9,19 @@ document.addEventListener('DOMContentLoaded', function() {
     })();
 
     // Buttons
-    const clientSources = [
-        { name: listURL, url: "https://www.google.com" },
-        { name: "Google 1", url: "https://www.google.com" },
-        { name: "Google 2", url: "https://www.google.com" },
-        { name: "Google 3", url: "https://www.google.com" },
-        { name: "Google 4", url: "https://www.google.com" },
-        { name: "Google 5", url: "https://www.google.com" },
-        { name: "Google 44", url: "https://www.google.com" }
-    ];
+    const response = await fetchWebsiteContent(listURL);
+    const clients = response.split(/\r?\n|\r|\n/g);
+    let output = [];
+
+    for (let i = 0; i < clients.length; i++) {
+      output[i] = {name: clients[i], url: "https://google.com"};
+    }
 
     // Get the button grid container
     const buttonGrid = document.querySelector('.button-grid');
 
     // Loop through client sources and create buttons
-    clientSources.forEach(source => {
+    output.forEach(source => {
         const a = document.createElement('a');
         a.href = source.url;
         a.className = 'client-button';
@@ -31,3 +29,17 @@ document.addEventListener('DOMContentLoaded', function() {
         buttonGrid.appendChild(a);
     });
 });
+
+async function fetchWebsiteContent(url) {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const text = await response.text();
+        return text;
+    } catch (error) {
+        console.error('Error fetching website content:', error);
+        return "Error";
+    }
+}
