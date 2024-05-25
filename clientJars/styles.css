@@ -92,3 +92,26 @@ h3 {
 .back-button:active {
     background-color: #777;
 }
+
+.github-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px; /* Adjusted to the bottom left corner */
+    padding: 10px 20px;
+    background-color: #404040;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+}
+
+.github-button:hover {
+    background-color: #555;
+}
+
+.github-button:active {
+    background-color: #777;
+}
+
