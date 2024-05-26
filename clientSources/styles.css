@@ -9,14 +9,19 @@ body {
     color: linear-gradient(to right, #2193b0, #ba6ded);
     font-family: 'Poppins', sans-serif;
     text-align: center;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .library-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px;
+    padding: 20px;
     border: none;
     border-radius: 10px;
-    overflow: hidden;
-    position: relative;
+    overflow: auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
 }
 
 h1 {
@@ -85,18 +90,10 @@ h3 {
     text-decoration: none;
 }
 
-.back-button:hover {
-    background-color: #555;
-}
-
-.back-button:active {
-    background-color: #777;
-}
-
 .github-button {
     position: fixed;
     bottom: 20px;
-    left: 20px; /* Adjusted to the bottom left corner */
+    left: 20px;
     padding: 10px 20px;
     background-color: #404040;
     color: #fff;
@@ -107,10 +104,18 @@ h3 {
     text-decoration: none;
 }
 
-.github-button:hover {
+.back-button {
+    right: 20px;
+}
+
+.back-button:hover, .github-button:hover {
     background-color: #555;
 }
 
-.github-button:active {
+.back-button:active, .github-button:active {
     background-color: #777;
+}
+
+.github-button {
+    left: 20px;
 }

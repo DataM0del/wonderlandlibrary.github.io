@@ -9,14 +9,19 @@ body {
     color: linear-gradient(to right, #2193b0, #ba6ded);
     font-family: 'Poppins', sans-serif;
     text-align: center;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .library-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px;
+    padding: 20px;
     border: none;
     border-radius: 10px;
-    overflow: hidden;
-    position: relative;
+    overflow: auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
 }
 
 h1 {
@@ -71,10 +76,9 @@ h3 {
     margin-top: 5px;
 }
 
-.back-button {
+.back-button, .github-button {
     position: fixed;
     bottom: 20px;
-    right: 20px;
     padding: 10px 20px;
     background-color: #404040;
     color: #fff;
@@ -85,33 +89,18 @@ h3 {
     text-decoration: none;
 }
 
-.back-button:hover {
+.back-button {
+    right: 20px;
+}
+
+.back-button:hover, .github-button:hover {
     background-color: #555;
 }
 
-.back-button:active {
+.back-button:active, .github-button:active {
     background-color: #777;
 }
 
 .github-button {
-    position: fixed;
-    bottom: 20px;
-    left: 20px; /* Adjusted to the bottom left corner */
-    padding: 10px 20px;
-    background-color: #404040;
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-family: 'Poppins', sans-serif;
-    text-decoration: none;
+    left: 20px;
 }
-
-.github-button:hover {
-    background-color: #555;
-}
-
-.github-button:active {
-    background-color: #777;
-}
-
