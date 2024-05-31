@@ -64,3 +64,12 @@ h1 {
     color: #ccc;
     margin-top: 5px;
 }
+
+.legal {
+  color: #606060;
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  position: absolute;
+  bottom: 5px;
+}
