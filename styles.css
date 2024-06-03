@@ -17,12 +17,14 @@ body {
     border-radius: 10px;
     overflow: hidden;
     position: relative;
+    width: 90%;
+    max-width: 800px;
 }
 
 h1 {
     font-size: 3em;
     margin-top: 5%;
-    margin-bottom: 0;
+    margin-bottom: 40px; /* Increased space below the title */
     background: -webkit-linear-gradient(left, #2193b0, #ba6ded);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -30,11 +32,44 @@ h1 {
 
 .button-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(2, 1fr); /* Ensure there are 2 equal columns */
     gap: 10px;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.changelog-grid {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.changelog-entry {
+    background-color: #404040;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.changelog-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.changelog-details {
+    font-size: 0.9em;
+    color: #b0b0b0;
+    margin-top: 5px;
+    margin-left: 5px;
+    text-align: left;
 }
 
 .client-button {
@@ -47,6 +82,7 @@ h1 {
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
     text-decoration: none;
+    text-align: center;
 }
 
 .client-button:hover {
@@ -65,11 +101,31 @@ h1 {
     margin-top: 5px;
 }
 
+.date-stamp {
+    color: #b0b0b0;
+    font-size: 0.8em;
+}
+
 .notice {
-  color: #606060;
-  border: none;
-  border-radius: 10px;
-  overflow: hidden;
-  position: absolute;
-  bottom: 5px;
+    color: #606060;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 5px;
+    text-align: center;
+    width: 100%;
+}
+
+.notice a {
+    color: #2193b0;
+    text-decoration: none;
+}
+
+.notice a:hover {
+    color: #ba6ded;
+}
+
+.notice a:active {
+    color: #a3a3ff;
 }
