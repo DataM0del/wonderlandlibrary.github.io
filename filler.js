@@ -5,6 +5,10 @@ document.addEventListener('DOMContentLoaded', async function() {
           return "https://raw.githubusercontent.com/WonderlandLibrary/client-sources/main/available";
         case "Client JARs":
           return "https://raw.githubusercontent.com/WonderlandLibrary/client-jars/main/available";
+        case "Plugin Sources":
+          return "https://raw.githubusercontent.com/WonderlandLibrary/plugin-sources/main/available";
+        case "Plugin JARs":
+          return "https://raw.githubusercontent.com/WonderlandLibrary/plugin-jars/main/available";
       }
     })();
 
@@ -14,7 +18,11 @@ document.addEventListener('DOMContentLoaded', async function() {
           return "https://github.com/WonderlandLibrary/client-sources/tree/main/sources";
         case "Client JARs":
           return "https://github.com/WonderlandLibrary/client-jars/tree/main/jars";
-      }
+      	case "Plugin Sources":
+          return "https://github.com/WonderlandLibrary/plugin-sources/tree/main/sources";
+        case "Plugin JARs":
+          return "https://github.com/WonderlandLibrary/plugin-jars/tree/main/jars";
+	}
     })();
 
     // Buttons
