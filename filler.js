@@ -4,7 +4,7 @@ const repo = urlParams.get("repo");
 
 document.addEventListener("DOMContentLoaded", async function () {
   const listURL = `https://raw.githubusercontent.com/WonderlandLibrary/${repo}/main/available`;
-  const folderURL = `https://github.com/WonderlandLibrary/${repo}/tree/main/sources`;
+  const folderURL = `https://github.com/WonderlandLibrary/${repo}/tree/main/${repo.split("-")[1]}`;
 
   // Buttons
   const response = await fetchWebsiteContent(listURL);
@@ -33,13 +33,13 @@ document.addEventListener("DOMContentLoaded", async function () {
       case "plugin-sources":
         return {
           name: "Plugin Sources",
-          description: "Archived Plugin JARs. Not all are runnable and some may be infected.",
+          description: "Archived Plugin sources. Not all are buildable and some may be infected.",
         };
 
       case "plugin-jars":
         return {
           name: "Plugin JARs",
-          description: "Archived Plugin sources. Not all are buildable and some may be infected.",
+          description: "Archived Plugin JARs. Not all are runnable and some may be infected.",
         };
 
       default:
