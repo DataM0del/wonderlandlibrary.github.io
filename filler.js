@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     output[i] = { name: clients[i], url: `${folderURL}/${clients[i]}/` };
   }
 
+  // Getting the information in the header based on the selected repository
   header = (() => {
     switch (repo) {
       case "client-sources":
@@ -49,8 +50,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   })();
 
-  const libaryContainer = document.querySelector(".info");
-  libaryContainer.innerHTML =
+  // Modifying the "info"'s div html and adding the header information
+  const info = document.querySelector(".info");
+  info.innerHTML =
     `<h1>${header.name}</h1> <h3>${header.description}</h3>`;
 
   // Get the button grid container
