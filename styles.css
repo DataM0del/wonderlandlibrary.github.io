@@ -5,6 +5,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     background: linear-gradient(to bottom, #1c1c1c, #1a1a1a);
     color: linear-gradient(to right, #2193b0, #ba6ded);
     font-family: 'Poppins', sans-serif;
@@ -24,15 +25,125 @@ body {
 h1 {
     font-size: 3em;
     margin-top: 5%;
-    margin-bottom: 40px; /* Increased space below the title */
+    margin-bottom: 40px;
     background: -webkit-linear-gradient(left, #2193b0, #ba6ded);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
+h3 {
+    text-align: center;
+    margin-top: -40px;
+    color: #ccc;
+}
+
+.featured-client-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.tablist-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%; /* Ensure tablist panel stretches to match height of client details panel */
+}
+
+.tablist {
+    background-color: #474747;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tab-button {
+    background-color: #404040;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.tab-button:hover {
+    background-color: #555;
+}
+
+.tab-button:active {
+    background-color: #777;
+}
+
+.client-details-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+}
+
+.client-panel {
+    display: none;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.client-panel.active {
+    display: block;
+}
+
+.client-panel h2 {
+    font-size: 2em;
+    margin-top: 0;
+}
+
+.client-panel h3 {
+    margin: 5px 0;
+    color: #fff;
+}
+
+.client-panel h4 {
+    margin: 5px 0;
+    color: #ccc;
+}
+
+.client-panel p {
+    color: #aaa;
+}
+
+.client-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.client-images img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 5px;
+}
+
 .button-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Ensure there are 2 equal columns */
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.1);
