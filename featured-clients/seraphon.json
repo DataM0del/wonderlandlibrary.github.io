@@ -1,9 +1,0 @@
-{
-  "Client": "Seraphon",
-  "Client-Version": "1.0.1",
-  "Minecraft-Version": "1.21",
-  "Client-Type": "Fabric",
-  "Description": "An upcoming 1.21 Minecraft client made specifically for servers with stricter anticheats",
-  "Image-1-Link": "./featured-clients/seraphon/seraphon-clickgui.png",
-  "Image-2-Link": "./featured-clients/seraphon/seraphon-mainmenu.png"
-}

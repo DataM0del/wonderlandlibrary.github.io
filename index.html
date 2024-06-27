@@ -10,39 +10,22 @@
     <div class="library-container">
         <h1>Wonderland Library</h1>
         <h3>Explore our collection of featured clients.</h3>
-        
+
         <div class="featured-client-container">
             <div class="tablist-panel">
                 <div class="tablist">
-                    <button class="tab-button" client="seraphon">Seraphon</button>
-                    <button class="tab-button" client="vectus">Vectus</button>
+                      <!-- Buttons will be added here by a script -->
                 </div>
             </div>
 
             <div class="client-details-panel">
-                <div class="client-panel active" id="seraphon-panel">
-                    <h2>Seraphon</h2>
-                    <h3>v1.0.1</h3>
-                    <h4>Minecraft Version - 1.21</h4>
-                    <p>An upcoming 1.21 Minecraft client made specifically for servers with stricter anticheats.</p>
-                    <div class="client-images">
-                        <img src="./featured-clients/seraphon/seraphon-clickgui.png" alt="Seraphon ClickGUI">
-                        <img src="./featured-clients/seraphon/seraphon-mainmenu.png" alt="Seraphon Main Menu">
-                    </div>
-                </div>
-
-                <div class="client-panel" id="vectus-panel">
-                    <h2>Vectus</h2>
-                    <h3>v1.0.2</h3>
-                    <h4>Minecraft Version - 1.8.9</h4>
-                    <p>A free hybrid client, mostly focused on ghost modules.</p>
-                    <div class="client-images">
-                        <img src="./featured-clients/vectus/vectus-clickgui.png" alt="Vectus ClickGUI">
-                        <img src="./featured-clients/vectus/vectus-mainmenu.png" alt="Vectus Main Menu">
-                    </div>
+                <div class="client-panel active">
+                    <!-- Selected client gets added by a script -->
                 </div>
             </div>
         </div>
+
+        <script src="featured-clients/featured.js"></script>
 
         <div class="button-grid">
             <a href="list/list.html?repo=client-jars" class="client-button">Client JARs<span class="button-text">Click to view</span></a>
