@@ -9,11 +9,11 @@
             "images": [
                 {
                     "name": "Vectus ClickGUI",
-                    "file": "vectus-clickgui"
+                    "file": "vectus-clickgui.webp"
                 },
                 {
                     "name": "Vectus Main Menu",
-                    "file": "vectus-mainmenu"
+                    "file": "vectus-mainmenu.webp"
                 }
             ],
             "downloadType": "standard",
@@ -33,11 +33,11 @@
             "images": [
                 {
                     "name": "Seraphon ClickGUI",
-                    "file": "seraphon-clickgui"
+                    "file": "seraphon-clickgui.webp"
                 },
                 {
                     "name": "Seraphon Main Menu",
-                    "file": "seraphon-mainmenu"
+                    "file": "seraphon-mainmenu.webp"
                 }
             ],
             "downloadType": "standard",
