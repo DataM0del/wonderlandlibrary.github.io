@@ -1,9 +1,3 @@
-const images = new Map();
-
-let loaded = false;
-let imageCount = 0;
-let loadedImageCount = 0;
-
 let clients;
 
 document.addEventListener("DOMContentLoaded", async function () {
@@ -18,62 +12,14 @@ document.addEventListener("DOMContentLoaded", async function () {
     button.className = "tab-button";
     button.innerHTML = client.name;
     button.onclick = function () {
-      if (loaded)
-        selectClient(client);
+      selectClient(client);
     };
     buttons.appendChild(button);
   }
 
-  updateLoad();
-  await cacheImages();
   selectClient(clients[0]);
 });
 
-async function cacheImages() {
-  for (const client of clients) {
-    for (const image of client.images) {
-      imageCount++;
-    }
-  }
-
-  for (const client of clients) {
-    for (const image of client.images) {
-        const fileUrl = "https://wonderlandlibrary.github.io/featured/images/" + image.file;
-        const base64data = await fetchWebsiteContent(fileUrl);
-        images.set(image.file, base64data);
-
-        loadedImageCount++;
-
-        updateLoad();
-    }
-  }
-
-  loaded = true;
-}
-
-async function updateLoad() {
-  if (loaded) {
-    console.warn("Attempted to call updateLoad after website has been loaded!");
-    return;
-  }
-
-  const panel = document.querySelector(".client-panel.active");
-  panel.innerHTML = "";
-
-  const loading = document.createElement("div");
-  loading.className = "loading";
-
-  const title = document.createElement("h2");
-  title.innerHTML = "Loading Information";
-
-  const desc = document.createElement("h3");
-  desc.innerHTML = `Loaded ${loadedImageCount}/${imageCount}`;
-
-  loading.appendChild(title);
-  loading.append(desc);
-
-  panel.appendChild(loading);
-}
 
 async function selectClient(client) {
   const panel = document.querySelector(".client-panel.active");
@@ -104,24 +50,10 @@ async function selectClient(client) {
 
   for (const image of client.images) {
     const imageElement = document.createElement("img");
-    imageElement.src = images.get(image.file);
+    imageElement.src = "https://wonderlandlibrary.github.io/featured/images/" + image.file;
     imageElement.alt = image.name;
     imagesElement.appendChild(imageElement);
   }
 
   panel.appendChild(imagesElement);
-}
-
-async function fetchWebsiteContent(url) {
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    const text = await response.text();
-    return text;
-  } catch (error) {
-    console.error("Error fetching website content:", error);
-    return "Error! View console for logs.";
-  }
 }
