@@ -1,5 +1,9 @@
 const images = new Map();
 
+let loaded = false;
+let imageCount = 0;
+let loadedImageCount = 0;
+
 let clients;
 
 document.addEventListener("DOMContentLoaded", async function () {
@@ -14,16 +18,24 @@ document.addEventListener("DOMContentLoaded", async function () {
     button.className = "tab-button";
     button.innerHTML = client.name;
     button.onclick = function () {
+      if (loaded)
         selectClient(client);
     };
     buttons.appendChild(button);
   }
 
+  updateLoad();
   await cacheImages();
   selectClient(clients[0]);
 });
 
 async function cacheImages() {
+  for (const client of clients) {
+    for (const image of client.images) {
+      imageCount++;
+    }
+  }
+
   for (const client of clients) {
     for (const image of client.images) {
       await fetch("https://raw.githubusercontent.com/WonderlandLibrary/featured-clients/main/images/" + image.file)
@@ -34,10 +46,40 @@ async function cacheImages() {
           reader.onloadend = () => {
             const base64data = reader.result;
             images.set(image.file, base64data);
+
+            loadedImageCount++;
+
+            updateLoad();
           };
         });
     }
   }
+
+  loaded = true;
+}
+
+async function updateLoad() {
+  if (loaded) {
+    console.warn("Attempted to call updateLoad after website has been loaded!");
+    return;
+  }
+
+  const panel = document.querySelector(".client-panel.active");
+  panel.innerHTML = "";
+
+  const loading = document.createElement("div");
+  loading.className = "loading";
+
+  const title = document.createElement("h2");
+  title.innerHTML = "Loading Information";
+
+  const desc = document.createElement("h3");
+  desc.innerHTML = `Loaded ${loadedImageCount}/${imageCount}`;
+
+  loading.appendChild(title);
+  loading.append(desc);
+
+  panel.appendChild(loading);
 }
 
 async function selectClient(client) {

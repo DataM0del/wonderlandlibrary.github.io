@@ -101,6 +101,10 @@ h3 {
     position: relative;
 }
 
+.loading {
+  color: #fff;
+}
+
 .client-panel.active {
     display: block;
 }
