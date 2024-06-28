@@ -137,9 +137,8 @@ h3 {
 .client-panel p {
     margin-top: 35px;
     margin-bottom: -10px;
-    display: flex;
-    flex-wrap: wrap;
     color: #aaa;
+    text-align: left;
 }
 
 .client-images {
