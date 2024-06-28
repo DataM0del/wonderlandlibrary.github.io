@@ -46,6 +46,10 @@ h3 {
     position: relative;
 }
 
+.featured-client-container a {
+    color: #fff
+}
+
 .tablist-panel {
     display: flex;
     gap: 10px;

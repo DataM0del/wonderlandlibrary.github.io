@@ -45,10 +45,13 @@ async function selectClient(client) {
   panel.innerHTML = "";
 
   const clientNameElement = document.createElement("h2");
-  clientNameElement.innerHTML = client.name;
+  const clientNameLinkElement = document.createElement("a");
+  clientNameLinkElement.innerHTML = client.name;
+  clientNameLinkElement.href = "downloads/download.html?client=" + client.name.toLowerCase();
+  clientNameElement.appendChild(clientNameLinkElement);
 
   const minecraftVersionElement = document.createElement("h3");
-  minecraftVersionElement.innerHTML = client.clientType + " - " + client.minecraftVersion;
+  minecraftVersionElement.innerHTML = `${client.clientType} - ${client.minecraftVersion}`;
 
   const clientVersionElement = document.createElement("h4");
   clientVersionElement.innerHTML = client.version;
