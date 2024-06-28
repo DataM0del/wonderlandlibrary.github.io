@@ -7,7 +7,7 @@ let loadedImageCount = 0;
 let clients;
 
 document.addEventListener("DOMContentLoaded", async function () {
-  await fetch("https://raw.githubusercontent.com/WonderlandLibrary/featured-clients/main/data.json")
+  await fetch("https://wonderlandlibrary.github.io/featured/data.json")
     .then(response => response.json())
     .then(json => clients = json.clients);
 
@@ -38,7 +38,7 @@ async function cacheImages() {
 
   for (const client of clients) {
     for (const image of client.images) {
-        const fileUrl = "https://raw.githubusercontent.com/WonderlandLibrary/featured-clients/main/images/" + image.file;
+        const fileUrl = "https://wonderlandlibrary.github.io/featured/images/" + image.file;
         const base64data = await fetchWebsiteContent(fileUrl);
         images.set(image.file, base64data);
 
