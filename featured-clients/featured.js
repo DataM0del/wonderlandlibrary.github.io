@@ -47,11 +47,11 @@ async function selectClient(client) {
   const clientNameElement = document.createElement("h2");
   clientNameElement.innerHTML = client.name;
 
-  const clientVersionElement = document.createElement("h3");
-  clientVersionElement.innerHTML = client.version;
+  const minecraftVersionElement = document.createElement("h3");
+  minecraftVersionElement.innerHTML = client.clientType + " - " + client.minecraftVersion;
 
-  const minecraftVersionElement = document.createElement("h4");
-  minecraftVersionElement.innerHTML = client.minecraftVersion;
+  const clientVersionElement = document.createElement("h4");
+  clientVersionElement.innerHTML = client.version;
 
   const clientDescriptionElement = document.createElement("p");
   clientDescriptionElement.innerHTML = client.description;
