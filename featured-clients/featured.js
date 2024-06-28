@@ -38,20 +38,13 @@ async function cacheImages() {
 
   for (const client of clients) {
     for (const image of client.images) {
-      await fetch("https://raw.githubusercontent.com/WonderlandLibrary/featured-clients/main/images/" + image.file)
-        .then(response => response.blob())
-        .then(blob => {
-          const reader = new FileReader();
-          reader.readAsDataURL(blob);
-          reader.onloadend = () => {
-            const base64data = reader.result;
-            images.set(image.file, base64data);
+        const fileUrl = "https://raw.githubusercontent.com/WonderlandLibrary/featured-clients/main/images/" + image.file;
+        const base64data = await fetchWebsiteContent(fileUrl);
+        images.set(image.file, base64data);
 
-            loadedImageCount++;
+        loadedImageCount++;
 
-            updateLoad();
-          };
-        });
+        updateLoad();
     }
   }
 
@@ -117,4 +110,18 @@ async function selectClient(client) {
   }
 
   panel.appendChild(imagesElement);
+}
+
+async function fetchWebsiteContent(url) {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const text = await response.text();
+    return text;
+  } catch (error) {
+    console.error("Error fetching website content:", error);
+    return "Error! View console for logs.";
+  }
 }
