@@ -4,29 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <title>Wonderland Library</title>
 </head>
 <body>
+    <div class="notice">
+        <a href="https://discord.gg/KBGX8FTAXa">Click here to visit our Discord server!</a>
+        <p>Please don't use the contents for skidding 💀</p>
+        <p>If you'd like to have content removed from this library for any reason, feel free to send an email explaining your reason to noreply@tax.sservice.gov.uk.</p>
+    </div>
+
     <div class="library-container">
         <h1>Wonderland Library</h1>
+        <h3>Explore our collection of content, and check out our featured clients!</h3>
+
+        <div class="featured-client-container">
+            <div class="tablist-panel">
+                <div class="tablist">
+                      <!-- Buttons will be added here by a script -->
+                </div>
+            </div>
+
+            <div class="client-details-panel">
+                <div class="client-panel active">
+                    <!-- Selected client gets added by a script -->
+                </div>
+            </div>
+        </div>
+
+        <script src="featured-clients/featured.js"></script>
+
         <div class="button-grid">
             <a href="list/list.html?repo=client-jars" class="client-button">Client JARs<span class="button-text">Click to view</span></a>
             <a href="list/list.html?repo=plugin-jars" class="client-button">Plugin JARs<span class="button-text">Click to view</span></a>
             <a href="list/list.html?repo=client-sources" class="client-button">Client Sources<span class="button-text">Click to view</span></a>
             <a href="list/list.html?repo=plugin-sources" class="client-button">Plugin Sources<span class="button-text">Click to view</span></a>
         </div>
+
         <div class="changelog-grid">
             <div class="changelog-entry">
                 <div class="changelog-title">Full changelogs coming soon!<span class="date-stamp">2024-06-03</span></div>
                 <div class="changelog-details">Descriptions will look like this.</div>
             </div>
         </div>
-    </div>
-
-    <div class="notice">
-      <a href="https://discord.gg/KBGX8FTAXa">Click here to visit our Discord server!</a>
-      <p>Please don't use the contents for skidding 💀</p>
-      <p>If you'd like to have content removed from this library for any reason, feel free to send an email explaining your reason to noreply@tax.sservice.gov.uk.</p>
     </div>
 </body>
 </html>
