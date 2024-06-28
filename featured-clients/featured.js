@@ -1,3 +1,5 @@
+const images = new Map();
+
 let clients;
 
 document.addEventListener("DOMContentLoaded", async function () {
@@ -17,8 +19,26 @@ document.addEventListener("DOMContentLoaded", async function () {
     buttons.appendChild(button);
   }
 
+  await cacheImages();
   selectClient(clients[0]);
 });
+
+async function cacheImages() {
+  for (const client of clients) {
+    for (const image of client.images) {
+      await fetch("https://raw.githubusercontent.com/WonderlandLibrary/featured-clients/main/images/" + image.file)
+        .then(response => response.blob())
+        .then(blob => {
+          const reader = new FileReader();
+          reader.readAsDataURL(blob);
+          reader.onloadend = () => {
+            const base64data = reader.result;
+            images.set(image.file, base64data);
+          };
+        });
+    }
+  }
+}
 
 async function selectClient(client) {
   const panel = document.querySelector(".client-panel.active");
@@ -44,9 +64,9 @@ async function selectClient(client) {
   const imagesElement = document.createElement("div");
   imagesElement.className = "client-images";
 
-  for (image of client.images) {
+  for (const image of client.images) {
     const imageElement = document.createElement("img");
-    imageElement.src = "https://raw.githubusercontent.com/WonderlandLibrary/featured-clients/main/images/" + image.file;
+    imageElement.src = images.get(image.file);
     imageElement.alt = image.name;
     imagesElement.appendChild(imageElement);
   }
