@@ -1,4 +1,3 @@
-//             <a href="list/list.html?repo=client-jars" class="client-button">Client JARs<span class="button-text">Click to view</span></a>
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const clientParam = urlParams.get("client");
@@ -6,7 +5,7 @@ const clientParam = urlParams.get("client");
 let clients;
 
 document.addEventListener("DOMContentLoaded", async function () {
-  await fetch("https://raw.githubusercontent.com/WonderlandLibrary/featured-clients/main/data.json")
+  await fetch("https://wonderlandlibrary.github.io/featured/data.json")
     .then(response => response.json())
     .then(json => clients = json.clients);
 
