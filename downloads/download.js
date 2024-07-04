@@ -47,10 +47,10 @@ document.addEventListener("DOMContentLoaded", async function () {
     const h1 = document.createElement("h1");
     h1.innerHTML = "Coming soon";
     const gif = document.createElement("img");
-    gif.src = "https://media1.tenor.com/m/6be0tZhr50QAAAAC/lazy-cat.gif";
+    gif.src = "https://wonderlandlibrary.github.io/featured/images/cat.gif";
     gif.alt = "Kitty cat gif";
 
-    container.appendChild(p);
+    container.appendChild(h1);
     container.appendChild(gif);
   }
 });
