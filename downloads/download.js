@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     container.appendChild(buttonGrid);
-  } else if (client.downloadType == "coming") {
+  } else if (client.downloadType == "comingsoon") {
     const h1 = document.createElement("h1");
     h1.innerHTML = "Coming soon";
     const gif = document.createElement("img");
