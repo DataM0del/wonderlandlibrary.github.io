@@ -43,11 +43,11 @@
       "downloadType": "standard",
       "links": [
         {
-          "name": "Windows Launcher",
+          "name": "Windows Launcher (1.8.9)",
           "link": "https://cdn.discordapp.com/attachments/1254901432566681631/1254905731564568699/Seraphon_Launcher_Windows.zip?ex=667fcec9&is=667e7d49&hm=807d1d6524955f18d57660f5b56cdfdb40b6d0e21da3f50c30c9c505b931e37d&"
         },
         {
-          "name": "Universal Launcher",
+          "name": "Universal Launcher (1.8.9)",
           "link": "https://cdn.discordapp.com/attachments/1254901432566681631/1254905731992391690/Seraphon_Launcher_Universal.zip?ex=667fcec9&is=667e7d49&hm=58a772812702e8f20e48300f11b59d72d315a4985d7d32f10aae644b7c63b333&"
         }
       ]
