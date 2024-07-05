@@ -36,7 +36,15 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     for (const download of client.links) {
       const button = document.createElement("a");
-      button.href = download.link;
+
+      let link = download.link;
+
+      if (link.startsWith("https")) {
+        button.href = link;
+      } else {
+        button.href = "https://wonderlandlibrary.github.io/featured/clients/" + link;
+      }
+
       button.className = "download-button";
       button.innerHTML = download.name + "<span class=\"button-text\">Click to download</span>";
       buttonGrid.appendChild(button);
