@@ -43,18 +43,18 @@
       "downloadType": "standard",
       "links": [
         {
-          "name": "Windows Launcher (1.8.9)",
+          "name": "Windows Launcher (legacy)",
           "link": "SeraphonLauncherWindows.zip"
         },
         {
-          "name": "Universal Launcher (1.8.9)",
+          "name": "Universal Launcher (legacy)",
           "link": "SeraphonLauncherUniversal.zip"
         }
       ]
     },
     {
       "name": "Argon",
-      "version": "1.0.0",
+      "version": "Coming soon",
       "minecraftVersion": "1.21",
       "clientType": "Fabric",
       "description": "A hyper-customizable modern client for both mini-games and anarchy enviroments",
