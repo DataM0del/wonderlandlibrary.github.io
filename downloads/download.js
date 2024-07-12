@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     clientName.innerHTML = "Unknown";
 
     const description = document.createElement("h3");
-    description.innerHTML = "Attempted to access data that doesn't exist."
+    description.innerHTML = "Attempted to access data that doesn't exist"
 
     container.appendChild(clientName);
     container.appendChild(description);
