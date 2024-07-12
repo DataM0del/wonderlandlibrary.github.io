@@ -21,6 +21,32 @@ document.addEventListener("DOMContentLoaded", async function () {
       client = it;
   }
 
+  if (client == undefined) {
+    const clientName = document.createElement("h1");
+    clientName.innerHTML = "Unknown";
+
+    const description = document.createElement("h3");
+    description.innerHTML = "Attempted to access data that doesn't exist."
+
+    container.appendChild(clientName);
+    container.appendChild(description);
+
+    const buttonGrid = document.createElement("div");
+    buttonGrid.className = "button-grid";
+
+    const button = document.createElement("a");
+
+    button.href = "https://wonderlandlibrary.github.io/";
+
+    button.className = "download-button";
+    button.innerHTML =  "Go Back";
+    buttonGrid.appendChild(button);
+
+    container.appendChild(buttonGrid);
+
+    return;
+  }
+
   if (client.downloadType == "standard") {
     const clientName = document.createElement("h1");
     clientName.innerHTML = client.name;
