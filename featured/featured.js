@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   for (const client of clients) {
     if (client.hiddenOnWebsite)
-	continue;
+	     continue;
 
     const button = document.createElement("button");
     button.className = "tab-button";
@@ -20,7 +20,13 @@ document.addEventListener("DOMContentLoaded", async function () {
     buttons.appendChild(button);
   }
 
-  selectClient(clients[0]);
+  for (const client of clients) {
+    if (client.hiddenOnWebsite)
+       continue;
+
+    selectClient(client);
+    break;
+  }
 });
 
 
