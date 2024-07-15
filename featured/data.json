@@ -87,6 +87,36 @@
     },
     {
       "hiddenOnWebsite": false,
+      "name": "TopHat",
+      "version": "b120923",
+      "minecraftVersion": "1.8.9",
+      "clientType": "MCP",
+      "description": "An old client of mine(Mark), that was purely made for visuals. Combat modules are the only good modules in this client.",
+      "images": [
+        {
+          "name": "TopHat ClickGUI",
+          "file": "tophat-clickgui.webp"
+        },
+        {
+          "name": "TopHat Main Menu",
+          "file": "tophat-mainmenu.webp"
+        }
+      ],
+      "website": {
+        "downloadType": "standard",
+        "links": [
+          {
+            "name": "TopHat b120923",
+            "link": "TopHatb120923.zip"
+          }
+        ]
+      },
+      "launcher": {
+        "comingsoon": true
+      }
+    },
+    {
+      "hiddenOnWebsite": false,
       "name": "Argon",
       "version": "Coming soon",
       "minecraftVersion": "1.21",
