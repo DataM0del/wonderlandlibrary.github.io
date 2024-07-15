@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", async function () {
   const buttons = document.querySelector(".tablist");
 
   for (const client of clients) {
+    if (client.hiddenOnWebsite)
+	continue;
+
     const button = document.createElement("button");
     button.className = "tab-button";
     button.innerHTML = client.name;
