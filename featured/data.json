@@ -1,6 +1,19 @@
 {
   "clients": [
     {
+      "hiddenOnWebsite": true,
+      "name": "OptiFine",
+      "version": "HD U M5",
+      "minecraftVersion": "1.8.9",
+      "clientType": "OptiFine",
+      "description": "OptiFine for 1.8.9",
+      "launcher": {
+        "comingsoon": false,
+        "jar": "1.8.9-OptiFine_HD_U_M5.jar",
+        "json": "1.8.9-OptiFine_HD_U_M5.json"
+      }
+    },
+    {
       "hiddenOnWebsite": false,
       "name": "Vectus",
       "version": "1.0.2",
@@ -17,17 +30,22 @@
           "file": "vectus-mainmenu.webp"
         }
       ],
-      "downloadType": "standard",
-      "links": [
-        {
-          "name": "Free 1.0.1 (12/05/24)",
-          "link": "VectusFree12052024.zip"
-        },
-        {
-          "name": "Free 1.0.2 (07/07/2024)",
-          "link": "VectusFree07072024.zip"
-        }
-      ]
+      "website": {
+        "downloadType": "standard",
+        "links": [
+          {
+            "name": "Free 1.0.1 (12/05/24)",
+            "link": "VectusFree12052024.zip"
+          },
+          {
+            "name": "Free 1.0.2 (07/07/2024)",
+            "link": "VectusFree07072024.zip"
+          }
+        ]
+      },
+      "launcher": {
+        "comingsoon": true
+      }
     },
     {
       "hiddenOnWebsite": false,
@@ -46,17 +64,22 @@
           "file": "seraphon-mainmenu.webp"
         }
       ],
-      "downloadType": "standard",
-      "links": [
-        {
-          "name": "Windows Launcher (legacy)",
-          "link": "SeraphonLauncherWindows.zip"
-        },
-        {
-          "name": "Universal Launcher (legacy)",
-          "link": "SeraphonLauncherUniversal.zip"
-        }
-      ]
+      "website": {
+        "downloadType": "standard",
+        "links": [
+          {
+            "name": "Windows Launcher (legacy)",
+            "link": "SeraphonLauncherWindows.zip"
+          },
+          {
+            "name": "Universal Launcher (legacy)",
+            "link": "SeraphonLauncherUniversal.zip"
+          }
+        ]
+      },
+      "launcher": {
+        "comingsoon": true
+      }
     },
     {
       "hiddenOnWebsite": false,
@@ -75,7 +98,12 @@
           "file": "argon-fly.webp"
         }
       ],
-      "downloadType": "comingsoon"
+      "website": {
+        "downloadType": "comingsoon"
+      },
+      "launcher": {
+        "comingsoon": true
+      }
     }
   ]
 }

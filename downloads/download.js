@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       client = it;
   }
 
-  if (client == undefined) {
+  if (client == undefined || client.hiddenOnWebsite) {
     const clientName = document.createElement("h1");
     clientName.innerHTML = "Unknown";
 
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     return;
   }
 
-  if (client.downloadType == "standard") {
+  if (client.website.downloadType == "standard") {
     const clientName = document.createElement("h1");
     clientName.innerHTML = client.name;
 
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const buttonGrid = document.createElement("div");
     buttonGrid.className = "button-grid";
 
-    for (const download of client.links) {
+    for (const download of client.website.links) {
       const button = document.createElement("a");
 
       let link = download.link;
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     container.appendChild(buttonGrid);
-  } else if (client.downloadType == "comingsoon") {
+  } else if (client.website.downloadType == "comingsoon") {
     const h1 = document.createElement("h1");
     h1.innerHTML = "Coming soon";
     const gif = document.createElement("img");
