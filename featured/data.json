@@ -16,7 +16,7 @@
         "assetIndex": "1.8",
         "nativesWindows": "optifine/windows.zip",
         "nativesUnix": "optifine/unix.zip",
-        "gpu:" "all",
+        "gpu": "all",
         "ram": 512,
         "os": "all"
       }
@@ -53,7 +53,7 @@
       },
       "launcher": {
         "comingsoon": true,
-        "gpu:" "all",
+        "gpu": "all",
         "ram": 512,
         "os": "all"
       }
@@ -90,7 +90,7 @@
       },
       "launcher": {
         "comingsoon": true,
-        "gpu:" "all",
+        "gpu": "all",
         "ram": 512,
         "os": "all"
       }
@@ -123,7 +123,7 @@
       },
       "launcher": {
         "comingsoon": true,
-        "gpu:" "all",
+        "gpu": "all",
         "ram": 512,
         "os": "all"
       }
@@ -150,7 +150,7 @@
       },
       "launcher": {
         "comingsoon": true,
-        "gpu:" "nvidia",
+        "gpu": "nvidia",
         "ram": 1024,
         "os": "win"
       }
