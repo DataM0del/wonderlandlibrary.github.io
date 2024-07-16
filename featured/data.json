@@ -67,8 +67,8 @@
     },
     {
       "hiddenOnWebsite": false,
-      "name": "Seraphon",
-      "version": "1.0.1",
+      "name": "Seraphon Nextgen",
+      "version": "1.0.0",
       "minecraftVersion": "1.21",
       "clientType": "Fabric",
       "description": "An upcoming 1.21 Minecraft client made specifically for servers with stricter anticheats",
@@ -83,20 +83,50 @@
         }
       ],
       "website": {
+        "downloadType": "comingsoon"
+      },
+      "launcher": {
+        "comingsoon": true,
+        "gpu": "all",
+        "ram": 512,
+        "os": "all"
+      }
+    },
+	    {
+      "hiddenOnWebsite": true,
+      "name": "Seraphon Legacy",
+      "version": "1.0.1",
+      "minecraftVersion": "1.8.9",
+      "clientType": "MCP",
+      "description": "The legacy version of Seraphon made for bypassing and disabling stricter anticheats such as Polar.",
+      "images": [
+        {
+          "name": "Seraphon Legacy ClickGUI",
+          "file": "seraphon-legacy-clickgui.webp"
+        },
+        {
+          "name": "Seraphon Legacy Main Menu",
+          "file": "seraphon-legacy-mainmenu.webp"
+        }
+      ],
+      "website": {
         "downloadType": "standard",
         "links": [
           {
-            "name": "Windows Launcher (legacy)",
-            "link": "SeraphonLauncherWindows.zip"
-          },
-          {
-            "name": "Universal Launcher (legacy)",
-            "link": "SeraphonLauncherUniversal.zip"
+            "name": "Seraphon Legacy 1.0.1",
+            "link": "SeraphonLegacy1.0.1.zip"
           }
         ]
       },
       "launcher": {
-        "comingsoon": true,
+        "comingsoon": false,
+        "jar": "seraphon-legacy/Seraphon-Legacy-1.0.1.jar",
+        "libs": "seraphon-legacy/seraphon-legacy.zip",
+	      "mainClass": "net.minecraft.client.main.Main",
+  	    "minecraftArguments": "--username ${auth_player_name} --version ${version_name} --gameDir ${game_directory} --assetsDir ${assets_root} --assetIndex ${assets_index_name} --uuid ${auth_uuid} --accessToken ${auth_access_token} --userProperties ${user_properties} --userType ${user_type}",
+        "assetIndex": "1.8",
+        "nativesWindows": "seraphon-legacy/windows.zip",
+        "nativesUnix": "seraphon-legacy/unix.zip",
         "gpu": "all",
         "ram": 512,
         "os": "all"
