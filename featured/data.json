@@ -52,7 +52,14 @@
         ]
       },
       "launcher": {
-        "comingsoon": true,
+        "comingsoon": false,
+        "jar": "vectus/Vectus-Free-1.0.2.jar",
+        "libs": "vectus/vectus.zip",
+	      "mainClass": "net.minecraft.client.main.Main",
+  	    "minecraftArguments": "--username ${auth_player_name} --version ${version_name} --gameDir ${game_directory} --assetsDir ${assets_root} --assetIndex ${assets_index_name} --uuid ${auth_uuid} --accessToken ${auth_access_token} --userProperties ${user_properties} --userType ${user_type}",
+        "assetIndex": "1.8",
+        "nativesWindows": "vectus/windows.zip",
+        "nativesUnix": "vectus/unix.zip",
         "gpu": "all",
         "ram": 512,
         "os": "all"
@@ -116,13 +123,20 @@
         "downloadType": "standard",
         "links": [
           {
-            "name": "TopHat b120923",
+            "name": "TopHat-b120923",
             "link": "TopHatb120923.zip"
           }
         ]
       },
       "launcher": {
-        "comingsoon": true,
+        "comingsoon": false,
+        "jar": "tophat/TopHat b120923.jar",
+        "libs": "tophat/tophat.zip",
+	      "mainClass": "net.minecraft.client.main.Main",
+  	    "minecraftArguments": "--username ${auth_player_name} --version ${version_name} --gameDir ${game_directory} --assetsDir ${assets_root} --assetIndex ${assets_index_name} --uuid ${auth_uuid} --accessToken ${auth_access_token} --userProperties ${user_properties} --userType ${user_type}",
+        "assetIndex": "1.8",
+        "nativesWindows": "tophat/windows.zip",
+        "nativesUnix": "tophat/unix.zip",
         "gpu": "all",
         "ram": 512,
         "os": "all"
