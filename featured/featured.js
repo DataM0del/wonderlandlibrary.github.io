@@ -1,7 +1,7 @@
 let clients;
 
 document.addEventListener("DOMContentLoaded", async function () {
-  await fetch("https://wonderlandlibrary.github.io/featured/data.json")
+  await fetch("https://wonderlandlibrary.github.io/data/website.json")
     .then(response => response.json())
     .then(json => clients = json.clients);
 
@@ -21,9 +21,6 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 
   for (const client of clients) {
-    if (client.hiddenOnWebsite)
-       continue;
-
     selectClient(client);
     break;
   }

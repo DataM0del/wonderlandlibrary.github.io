@@ -1,0 +1,120 @@
+{
+  "clients": [
+    {
+      "name": "Vectus",
+      "version": "1.0.2",
+      "minecraftVersion": "1.8.9",
+      "clientType": "MCP",
+      "description": "A free hybrid client, mostly focused on ghost modules.",
+      "images": [
+        {
+          "name": "Vectus ClickGUI",
+          "file": "vectus-clickgui.webp"
+        },
+        {
+          "name": "Vectus Main Menu",
+          "file": "vectus-mainmenu.webp"
+        }
+      ],
+      "download": true,
+      "links": [
+        {
+          "name": "Free 1.0.1 (12/05/24)",
+          "internal": true,
+          "link": "VectusFree12052024.zip"
+        },
+        {
+          "name": "Free 1.0.2 (07/07/2024)",
+          "internal": true,
+          "link": "VectusFree07072024.zip"
+        }
+      ]
+    },
+    {
+      "name": "Seraphon Nextgen",
+      "version": "1.0.0",
+      "minecraftVersion": "1.21",
+      "clientType": "Fabric",
+      "description": "An upcoming 1.21 Minecraft client made specifically for servers with stricter anticheats",
+      "images": [
+        {
+          "name": "Seraphon ClickGUI",
+          "file": "seraphon-clickgui.webp"
+        },
+        {
+          "name": "Seraphon Main Menu",
+          "file": "seraphon-mainmenu.webp"
+        }
+      ],
+      "download": false
+    },
+	  {
+      "name": "Seraphon Legacy",
+      "version": "1.0.1",
+      "minecraftVersion": "1.8.9",
+      "clientType": "MCP",
+      "description": "The legacy version of Seraphon made for bypassing and disabling stricter anticheats such as Polar.",
+      "images": [
+        {
+          "name": "Seraphon Legacy ClickGUI",
+          "file": "seraphon-legacy-clickgui.webp"
+        },
+        {
+          "name": "Seraphon Legacy Main Menu",
+          "file": "seraphon-legacy-mainmenu.webp"
+        }
+      ],
+      "download": true,
+      "links": [
+        {
+          "name": "Seraphon Legacy 1.0.1",
+          "internal": true,
+          "link": "SeraphonLegacy1.0.1.zip"
+        }
+      ]
+    },
+    {
+      "name": "TopHat",
+      "version": "b120923",
+      "minecraftVersion": "1.8.9",
+      "clientType": "MCP",
+      "description": "An old client of mine(Mark), that was purely made for visuals. Combat modules are the only good modules in this client.",
+      "images": [
+        {
+          "name": "TopHat ClickGUI",
+          "file": "tophat-clickgui.webp"
+        },
+        {
+          "name": "TopHat Main Menu",
+          "file": "tophat-mainmenu.webp"
+        }
+      ],
+      "download": true,
+      "links": [
+        {
+          "name": "TopHat-b120923",
+          "internal": true,
+          "link": "TopHatb120923.zip"
+        }
+      ]
+    },
+    {
+      "name": "Argon",
+      "version": "Coming soon",
+      "minecraftVersion": "1.21",
+      "clientType": "Fabric",
+      "description": "A hyper-customizable modern client for both mini-games and anarchy enviroments",
+      "images": [
+        {
+          "name": "Argon Combat",
+          "file": "argon-combat.webp"
+        },
+        {
+          "name": "Argon Fly",
+          "file": "argon-fly.webp"
+        }
+      ],
+      "download": false
+    }
+  ]
+}

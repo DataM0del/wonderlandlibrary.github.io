@@ -5,7 +5,7 @@ const clientParam = urlParams.get("client");
 let data;
 
 document.addEventListener("DOMContentLoaded", async function () {
-  await fetch("https://wonderlandlibrary.github.io/featured/data.json")
+  await fetch("https://wonderlandlibrary.github.io/data/website.json")
     .then(response => response.json())
     .then(json => data = json);
 
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       client = it;
   }
 
-  if (client == undefined || client.hiddenOnWebsite) {
+  if (client == undefined) {
     const clientName = document.createElement("h1");
     clientName.innerHTML = "Unknown";
 
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     return;
   }
 
-  if (client.website.downloadType == "standard") {
+  if (client.download) {
     const clientName = document.createElement("h1");
     clientName.innerHTML = client.name;
 
@@ -60,15 +60,15 @@ document.addEventListener("DOMContentLoaded", async function () {
     const buttonGrid = document.createElement("div");
     buttonGrid.className = "button-grid";
 
-    for (const download of client.website.links) {
+    for (const download of client.links) {
       const button = document.createElement("a");
 
       let link = download.link;
 
-      if (link.startsWith("https")) {
-        button.href = link;
-      } else {
+      if (download.internal) {
         button.href = "https://wonderlandlibrary.github.io/featured/clients/" + link;
+      } else {
+        button.href = link
       }
 
       button.className = "download-button";
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     container.appendChild(buttonGrid);
-  } else if (client.website.downloadType == "comingsoon") {
+  } else {
     const h1 = document.createElement("h1");
     h1.innerHTML = "Coming soon";
     const gif = document.createElement("img");
