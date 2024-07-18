@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       let link = download.link;
 
       if (download.internal) {
-        button.href = "https://wonderlandlibrary.github.io/featured/clients/" + link;
+        button.href = `https://wonderlandlibrary.github.io/featured/clients/${link}`;
       } else {
         button.href = link
       }
