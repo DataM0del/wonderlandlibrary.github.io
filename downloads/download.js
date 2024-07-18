@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     for (const download of client.links) {
       const button = document.createElement("a");
 
-      let link = download.link;
+      const link = download.link;
 
       if (download.internal) {
         button.href = `https://wonderlandlibrary.github.io/featured/clients/${link}`;
