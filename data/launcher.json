@@ -1,0 +1,81 @@
+{
+  "clients": [
+    {
+      "name": "OptiFine",
+      "description": "OptiFine for 1.8.9",
+      "download": true,
+      "jar": "optifine/1.8.9-OptiFine_HD_U_M5.jar",
+      "libs": "optifine/optifine.zip",
+      "mainClass": "net.minecraft.launchwrapper.Launch",
+      "minecraftArguments": "--username ${auth_player_name} --version ${version_name} --gameDir ${game_directory} --assetsDir ${assets_root} --assetIndex ${assets_index_name} --uuid ${auth_uuid} --accessToken ${auth_access_token} --userProperties ${user_properties} --userType ${user_type}  --tweakClass optifine.OptiFineTweaker",
+      "assetIndex": "1.8",
+      "nativesWindows": "optifine/windows.zip",
+      "nativesUnix": "optifine/unix.zip",
+      "gpu": "all",
+      "ram": 512,
+      "os": "all"
+    },
+    {
+      "name": "Vectus",
+      "description": "A free hybrid client, mostly focused on ghost modules.",
+      "download": true,
+      "jar": "vectus/Vectus-Free-1.0.2.jar",
+      "libs": "vectus/vectus.zip",
+      "mainClass": "net.minecraft.client.main.Main",
+      "minecraftArguments": "--username ${auth_player_name} --version ${version_name} --gameDir ${game_directory} --assetsDir ${assets_root} --assetIndex ${assets_index_name} --uuid ${auth_uuid} --accessToken ${auth_access_token} --userProperties ${user_properties} --userType ${user_type}",
+      "assetIndex": "1.8",
+      "nativesWindows": "vectus/windows.zip",
+      "nativesUnix": "vectus/unix.zip",
+      "gpu": "all",
+      "ram": 512,
+      "os": "all"
+    },
+    {
+      "name": "Seraphon Nextgen",
+      "description": "An upcoming 1.21 Minecraft client made specifically for servers with stricter anticheats",
+      "download": false,
+      "gpu": "all",
+      "ram": 512,
+      "os": "all"
+    },
+	  {
+      "name": "Seraphon Legacy",
+      "description": "The legacy version of Seraphon made for bypassing and disabling stricter anticheats such as Polar.",
+      "download": true,
+      "jar": "seraphon-legacy/Seraphon-Legacy-1.0.1.jar",
+      "libs": "seraphon-legacy/seraphon-legacy.zip",
+      "mainClass": "net.minecraft.client.main.Main",
+      "minecraftArguments": "--username ${auth_player_name} --version ${version_name} --gameDir ${game_directory} --assetsDir ${assets_root} --assetIndex ${assets_index_name} --uuid ${auth_uuid} --accessToken ${auth_access_token} --userProperties ${user_properties} --userType ${user_type}",
+      "assetIndex": "1.8",
+      "nativesWindows": "seraphon-legacy/windows.zip",
+      "nativesUnix": "seraphon-legacy/unix.zip",
+      "gpu": "all",
+      "ram": 512,
+      "os": "all"
+    },
+    {
+      "name": "TopHat",
+      "description": "An old client of mine(Mark), that was purely made for visuals. Combat modules are the only good modules in this client.",
+      "download": true,
+      "comingsoon": false,
+      "jar": "tophat/TopHatb120923.jar",
+      "libs": "tophat/tophat.zip",
+      "mainClass": "net.minecraft.client.main.Main",
+      "minecraftArguments": "--username ${auth_player_name} --version ${version_name} --gameDir ${game_directory} --assetsDir ${assets_root} --assetIndex ${assets_index_name} --uuid ${auth_uuid} --accessToken ${auth_access_token} --userProperties ${user_properties} --userType ${user_type}",
+      "assetIndex": "1.8",
+      "nativesWindows": "tophat/windows.zip",
+      "nativesUnix": "tophat/unix.zip",
+      "gpu": "all",
+      "ram": 512,
+      "os": "all"
+    },
+    {
+      "name": "Argon",
+      "description": "A hyper-customizable modern client for both mini-games and anarchy enviroments",
+      "download": false,
+      "gpu": "nvidia",
+      "ram": 1024,
+      "os": "win"
+    }
+  ]
+}
