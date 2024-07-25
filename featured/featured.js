@@ -7,6 +7,12 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   const buttons = document.querySelector(".tablist");
 
+  clients.sort(
+    function (firstClient, secondClient) {
+      return firstClient.name.localeCompare(secondClient.name);
+    }
+  );
+
   for (const client of clients) {
     if (client.hiddenOnWebsite)
 	     continue;
