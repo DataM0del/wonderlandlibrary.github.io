@@ -19,7 +19,7 @@
       "name": "Vectus",
       "description": "A free hybrid client, mostly focused on ghost modules.",
       "download": true,
-      "jar": "vectus/Vectus-Free-1.0.2.jar",
+      "jar": "vectus/Vectus-Free-1.0.3.jar",
       "libs": "vectus/vectus.zip",
       "mainClass": "net.minecraft.client.main.Main",
       "minecraftArguments": "--username ${auth_player_name} --version ${version_name} --gameDir ${game_directory} --assetsDir ${assets_root} --assetIndex ${assets_index_name} --uuid ${auth_uuid} --accessToken ${auth_access_token} --userProperties ${user_properties} --userType ${user_type}",
