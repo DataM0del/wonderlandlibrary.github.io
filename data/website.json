@@ -4,7 +4,7 @@
       "name": "Vectus",
       "version": "1.0.3",
       "minecraftVersion": "1.8.9",
-      "clientType": "MCP",
+      "clientType": "Standalone",
       "description": "A free hybrid client, mostly focused on ghost modules.",
       "images": [
         {
@@ -37,7 +37,7 @@
     },
     {
       "name": "Seraphon Nextgen",
-      "version": "1.0.0",
+      "version": "Coming soon",
       "minecraftVersion": "1.21",
       "clientType": "Fabric",
       "description": "An upcoming 1.21 Minecraft client made specifically for servers with stricter anticheats",
@@ -57,7 +57,7 @@
       "name": "Seraphon Legacy",
       "version": "1.0.1",
       "minecraftVersion": "1.8.9",
-      "clientType": "MCP",
+      "clientType": "Standalone",
       "description": "The legacy version of Seraphon made for bypassing and disabling stricter anticheats such as Polar.",
       "images": [
         {
@@ -82,7 +82,7 @@
       "name": "TopHat",
       "version": "b120923",
       "minecraftVersion": "1.8.9",
-      "clientType": "MCP",
+      "clientType": "Standalone",
       "description": "A blatant client with modern visuals and advanced combat modules.",
       "images": [
         {
