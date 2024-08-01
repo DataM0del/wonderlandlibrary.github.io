@@ -109,7 +109,7 @@ h3 {
     display: block;
 }
 
-.client-panel h2 {
+.client-header h2 {
     font-size: 2em;
     margin: 5px 0;
     color: #fff;
@@ -118,13 +118,24 @@ h3 {
     left: 20px;
 }
 
+.get-button a {
+  margin: 0;
+  color: #ccc;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 5px;
+  margin-right: 15px;
+  font-size: 160%
+}
+
 .client-panel h3 {
     margin: 0;
     color: #ccc;
     position: absolute;
     bottom: 0;
     right: 0;
-    margin-bottom: 5px;
+    margin-bottom: 30px;
     margin-right: 15px;
 }
 
@@ -134,7 +145,7 @@ h3 {
     position: absolute;
     bottom: 0;
     right: 0;
-    margin-bottom: 23px;
+    margin-bottom: 50px;
     margin-right: 15px;
 }
 

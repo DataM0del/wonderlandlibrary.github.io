@@ -37,11 +37,24 @@ async function selectClient(client) {
   const panel = document.querySelector(".client-panel.active");
   panel.innerHTML = "";
 
+  const headerElement = document.createElement("div");
+  headerElement.className = "client-header";
+
   const clientNameElement = document.createElement("h2");
   const clientNameLinkElement = document.createElement("a");
   clientNameLinkElement.innerHTML = client.name;
-  clientNameLinkElement.href = "downloads/download.html?client=" + client.name.toLowerCase();
+  //clientNameLinkElement.href = "downloads/download.html?client=" + client.name.toLowerCase();
   clientNameElement.appendChild(clientNameLinkElement);
+  headerElement.appendChild(clientNameElement);
+
+  const getElement = document.createElement("div");
+  getElement.className = "get-button";
+
+  const getText = document.createElement("a");
+  getText.innerHTML = "Download";
+  getText.href = "downloads/download.html?client=" + client.name.toLowerCase();
+
+  getElement.appendChild(getText);
 
   const minecraftVersionElement = document.createElement("h3");
   minecraftVersionElement.innerHTML = `${client.clientType} - ${client.minecraftVersion}`;
@@ -52,9 +65,10 @@ async function selectClient(client) {
   const clientDescriptionElement = document.createElement("p");
   clientDescriptionElement.innerHTML = client.description;
 
-  panel.appendChild(clientNameElement);
+  panel.appendChild(headerElement);
   panel.appendChild(clientVersionElement);
   panel.appendChild(minecraftVersionElement);
+  panel.appendChild(getElement);
   panel.appendChild(clientDescriptionElement);
 
   const imagesElement = document.createElement("div");
