@@ -15,6 +15,19 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   let client;
 
+  if (clientParam == null) {
+    const h1 = document.createElement("h1");
+    h1.innerHTML = "Coming soon";
+    const gif = document.createElement("img");
+    gif.src = "https://wonderlandlibrary.github.io/featured/images/cat.gif";
+    gif.alt = "Kitty cat gif";
+
+    container.appendChild(h1);
+    container.appendChild(gif);
+
+    return;
+  }
+
   for (const it of clients) {
     const name = it.name;
     if (name.toLowerCase() == clientParam)
@@ -78,13 +91,6 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     container.appendChild(buttonGrid);
   } else {
-    const h1 = document.createElement("h1");
-    h1.innerHTML = "Coming soon";
-    const gif = document.createElement("img");
-    gif.src = "https://wonderlandlibrary.github.io/featured/images/cat.gif";
-    gif.alt = "Kitty cat gif";
-
-    container.appendChild(h1);
-    container.appendChild(gif);
+    window.location.replace("download.html");
   }
 });
