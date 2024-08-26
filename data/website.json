@@ -107,24 +107,6 @@
           "link": "TopHatb120923.zip"
         }
       ]
-    },
-    {
-      "name": "Argon",
-      "version": "Coming soon",
-      "minecraftVersion": "1.21",
-      "clientType": "Fabric",
-      "description": "A hyper-customizable modern client for both mini-games and anarchy enviroments",
-      "images": [
-        {
-          "name": "Argon Combat",
-          "file": "argon-combat.webp"
-        },
-        {
-          "name": "Argon Fly",
-          "file": "argon-fly.webp"
-        }
-      ],
-      "download": false
     }
   ]
 }

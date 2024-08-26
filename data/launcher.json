@@ -69,13 +69,5 @@
       "ram": 512,
       "os": "all"
     },
-    {
-      "name": "Argon",
-      "description": "A hyper-customizable modern client for both mini-games and anarchy enviroments",
-      "download": false,
-      "gpu": "nvidia",
-      "ram": 1024,
-      "os": "win"
-    }
   ]
 }
