@@ -54,17 +54,21 @@ function writeDataToUi() {
     }
 }
 
-function getButton(name, fileName) {
+function getButton(name, entryName) {
     const wrapper = document.createElement('a');
     const button = document.createElement("button");
     button.innerText = name;
     wrapper.append(button);
 
     const isSource = currentType === 'cs' || currentType === 'ps';
-    const endpoint = isSource ? 'download.php' : 'get.php';
 
-    const url = `https://jelloprg.sigmaclient.cloud/wonderland/${endpoint}?type=${currentType}&folder=&file=${encodeURIComponent(fileName)}`;
-    wrapper.href = url;
+    wrapper.href = function () {
+        if (isSource) {
+            return `https://jelloprg.sigmaclient.cloud/wonderland/download.php?type=${currentType}&folder=&file=${entryName}`
+        } else {
+            return `https://jelloprg.sigmaclient.cloud/wonderland/get.php?type=${currentType}&folder=${entryName}`
+        }
+    }();
 
     return wrapper;
 }
