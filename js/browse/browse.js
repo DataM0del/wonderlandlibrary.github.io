@@ -1,8 +1,10 @@
 let name = null;
-let entries = null
+let entries = null;
+let currentType = null;
 let buttonMap = new Map();
 
 function prepareData(type) {
+    currentType = type;
     switch (type) {
         case 'cb':
             name = "Client Binaries";
@@ -27,11 +29,9 @@ function prepareData(type) {
             }
             return response.text();
         }).then(data => {
-
-        entries = data.split(/\r?\n/);
-
-        writeDataToUi();
-    })
+            entries = data.split(/\r?\n/);
+            writeDataToUi();
+        })
         .catch(error => {
             console.error('Error fetching featured clients:', error);
         });
@@ -41,21 +41,30 @@ const entryGrid = document.getElementById('entry-grid');
 
 function writeDataToUi() {
     document.getElementById('header').innerText = name;
+
+    entryGrid.innerHTML = "";
+
     for (const [, value] of Object.entries(entries)) {
-        const button = getButton(value, "https://jelloprg.sigmaclient.cloud/wonderland/get.php?folder=" + value);
+        const trimmedValue = value.trim();
+        if (!trimmedValue) continue;
+
+        const button = getButton(trimmedValue, trimmedValue);
         entryGrid.appendChild(button);
-        buttonMap.set(value, button);
+        buttonMap.set(trimmedValue, button);
     }
 }
 
-function getButton(name, href) {
+function getButton(name, fileName) {
     const wrapper = document.createElement('a');
-
     const button = document.createElement("button");
     button.innerText = name;
     wrapper.append(button);
 
-    wrapper.href = href;
+    const isSource = currentType === 'cs' || currentType === 'ps';
+    const endpoint = isSource ? 'download.php' : 'get.php';
+
+    const url = `https://jelloprg.sigmaclient.cloud/wonderland/${endpoint}?type=${currentType}&folder=&file=${encodeURIComponent(fileName)}`;
+    wrapper.href = url;
 
     return wrapper;
 }
