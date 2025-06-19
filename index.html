@@ -1,25 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="google-site-verification" content="94oRHCUCa9mBvWlyLLl-62DsHqx63kuuqpYJ4gSazOU" />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-	  <meta name="description" content="The best Minecraft hacks & tools for servers, from beta through 1.8 to the latest.">
-    <meta name="keywords" content="Minecraft, Hack, Cheat, Velocity, KillAura">
-	<title>Wonderland Library</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Wonderland Central</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+          rel=" stylesheet">
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
 </head>
 <body>
-    <div class="notice">
-        <a href="https://discord.gg/KBGX8FTAXa">Click here to visit our Discord server!</a>
-        <p>Please don't use the contents for skidding 💀</p>
-        <p>If you'd like to have content removed from this library for any reason, feel free to send an email explaining your reason to noreply@tax.sservice.gov.uk.</p>
+<header>
+    <div class="left-section">
+        <span class="site-name">Wonderland Central</span>
+        <nav class="top-nav">
+            <a href="#">Featured Clients</a>
+            <a href="#">Archive</a>
+        </nav>
     </div>
+    <a href="https://discord.gg/BZhQFWYbhR" class="top-nav">
+        <img src="icons/discord.png" alt="Logo" class="logo"/>
+    </a>
+</header>
+<main class="main-layout" id="clients">
+    <aside class="sidebar" id="sidebar">
+        <div id="progress-bar-wrapper">
+            <div class="progress-bar"></div>
+            <div class="progress-bar-selected" id="progress-bar-selected"></div>
+        </div>
+    </aside>
 
-    <div class="library-container">
-        <h1>Wonderland Library</h1>
-        <h3>Moved to https://wonderland.codeberg.page/!</h3>
-    </div>
+    <section class="content" id="content-area">
+        <div id="content-screen">
+            <div class="text-section">
+                <h2 id="screen-title">Loading</h2>
+                <p id="screen-description">Fetching data</p>
+            </div>
+
+            <div class="get-container">
+                <a id="get-button-container" href="#">
+                    <button class="get-button" id="get-button">Get</button>
+                </a>
+            </div>
+
+            <div class="image-pair">
+                <div class="image-wrapper"><img id="screen-image-1" class="preview-img" src="" alt="Preview 1"></div>
+                <div class="image-wrapper"><img id="screen-image-2" class="preview-img" src="" alt="Preview 2"></div>
+            </div>
+        </div>
+    </section>
+</main>
+
 </body>
+<script src="js/main/featured-clients.js"></script>
+<script src="js/main/archive.js"></script>
 </html>

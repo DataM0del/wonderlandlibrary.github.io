@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Wonderland Central</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+          rel=" stylesheet">
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/browse.css"/>
+</head>
+<body>
+<header>
+    <div class="left-section">
+        <span class="site-name">Wonderland Central</span>
+        <nav class="top-nav">
+            <a href="/">Featured Clients</a>
+            <a href="/">Archive</a>
+        </nav>
+    </div>
+    <a href="https://discord.gg/BZhQFWYbhR" class="top-nav">
+        <img src="icons/discord.png" alt="Logo" class="logo"/>
+    </a>
+</header>
+<main class="button-grid-wrapper">
+    <div class="button-grid-container">
+        <div class="grid-header">
+            <h2 class="grid-title" id="header">Loading</h2>
+            <div class="search-bar">
+                <label>
+                    <input id="search-bar" type="text" placeholder="Search..." />
+                </label>
+            </div>
+        </div>
+
+        <div class="button-grid" id="entry-grid">
+            <!--filled from browse.js-->
+        </div>
+    </div>
+</main>
+
+
+<script src="js/browse/browse.js"></script>
+</body>

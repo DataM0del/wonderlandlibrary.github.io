@@ -1,0 +1,61 @@
+body {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+            "wdth" 100;
+
+    margin: 0;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 17px 34px;
+    background-color: #2c2c2c;
+}
+
+.site-name {
+    display: inline-block;
+    font-size: 1.7rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #2193b0, #ba6ded);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+    z-index: 1;
+}
+
+nav {
+    display: flex;
+    gap: 17px;
+    margin-left: 34px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #fff;
+}
+
+.logo {
+    width: 42px;
+    height: 42px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.left-section {
+    display: flex;
+    align-items: center;
+}
