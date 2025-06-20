@@ -80,7 +80,7 @@ function createSidebar() {
 
     screens.forEach((screen, index) => {
         const btn = document.createElement("button");
-        btn.textContent = screen.name;
+        btn.innerHTML = `<span>${screen.name}</span>`;
         btn.className = "side-btn";
         btn.onclick = () => {
             scroll = false;
@@ -107,8 +107,11 @@ function showScreen(index) {
         screen.price === 0 ? "GET (FREE)" : `GET (${screen.price}€)`;
 
     buttons.forEach((btnIndex, btn) => {
-        btn.style.background =
-            btnIndex === index ? "linear-gradient(45deg, #2193b0, #ba6ded)" : "";
+        if (btnIndex === index) {
+            btn.classList.add("selected");
+        } else {
+            btn.classList.remove("selected");
+        }
     });
 }
 
