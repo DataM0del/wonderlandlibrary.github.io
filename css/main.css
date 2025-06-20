@@ -3,7 +3,8 @@
   height: 300px;
   width: 100%;
   background-color: #1a1a1a;
-  border-bottom: 1px solid #444; 
+  border-bottom: 1px solid #444;
+  order: 0;
 }
 
 .sidebar {
@@ -222,6 +223,19 @@
   }
 }
 
+.archive {
+  align-self: center;
+}
+
+.section-header {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #fff;
+  padding-bottom: 8px;
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
 .button-grid {
   display: flex;
   flex-wrap: wrap;
@@ -235,7 +249,7 @@
   align-items: center;
   justify-content: space-between;
 
-  width: calc(50% - 5px);
+  width: calc(33% - 5px);
   height: 60px;
   box-sizing: border-box;
 
