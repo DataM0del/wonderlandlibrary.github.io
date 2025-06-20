@@ -197,7 +197,7 @@
   justify-content: space-between;
 
   width: calc(50% - 5px);
-  height: 50px;
+  height: 60px;
   box-sizing: border-box;
 
   text-decoration: none;
@@ -213,6 +213,7 @@
   box-sizing: border-box;
   font-size: 16px;
   cursor: pointer;
+  overflow: hidden;
 
   color: #eee;
   border: none;
@@ -223,6 +224,12 @@
 
 .button-grid button:hover {
   background-color: #666;
+}
+
+.button-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
 
 .button-text .label-main {
@@ -236,9 +243,21 @@
   margin-left: 10px;
 }
 
+@media (max-width: 610px) {
+  .button-text .label-sub {
+    display: none;
+  }
+  .button-icon {
+    display: none;
+  }
+}
+
 .button-icon {
-  width: 24px;
-  height: 24px;
+  width: min(50%, 400px);
+  height: calc(100% + 4px);
+  margin-right: -6px;
   margin-left: 12px;
-  margin-right: 5px;
+  margin-top: -2px;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black);
 }

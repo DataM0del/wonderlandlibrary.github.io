@@ -3,10 +3,10 @@ window.addEventListener('load', async () => {
   grid.className = "button-grid";
   grid.id = "button-grid";
 
-  grid.appendChild(createButton("Client Binaries", `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=cb")} entries and counting!`, "browse.html?type=cb", "icons/file.png"));
-  grid.appendChild(createButton("Client Sources", `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=cs")} entries and counting!`, "browse.html?type=cs", "icons/code.png"));
-  grid.appendChild(createButton("Plugin Binaries", `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=pb")} entries and counting!`, "browse.html?type=pb", "icons/file.png"));
-  grid.appendChild(createButton("Plugin Sources", `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=ps")} entries and counting!`, "browse.html?type=ps", "icons/code.png"));
+  grid.appendChild(createButton("Client Binaries", `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=cb")} entries and counting!`, "browse.html?type=cb", "icons/minecraft.webp"));
+  grid.appendChild(createButton("Client Sources", `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=cs")} entries and counting!`, "browse.html?type=cs", "icons/code.webp"));
+  grid.appendChild(createButton("Plugin Binaries", `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=pb")} entries and counting!`, "browse.html?type=pb", "icons/minecraft.webp"));
+  grid.appendChild(createButton("Plugin Sources", `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=ps")} entries and counting!`, "browse.html?type=ps", "icons/code.webp"));
 
   document.body.appendChild(grid);
 });
