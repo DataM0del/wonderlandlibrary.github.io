@@ -18,6 +18,12 @@ function prepareData(type) {
         case 'ps':
             name = "Plugin Sources";
             break;
+        case 'ut':
+            name = "User Tools";
+            break;
+        case 'dt':
+            name = "Development Tools";
+            break;
         default:
             throw "Unknown type " + type;
     }
@@ -60,7 +66,7 @@ function getButton(name, entryName) {
     button.innerText = name;
     wrapper.append(button);
 
-    const isSource = currentType === 'cs' || currentType === 'ps';
+    const isSource = currentType === 'cs' || currentType === 'ps' || currentType === 'ut' || currentType === 'dt';
 
     wrapper.href = function () {
         if (isSource) {
