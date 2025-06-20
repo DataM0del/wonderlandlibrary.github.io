@@ -7,7 +7,7 @@ let scrollInterval = null;
 let scroll = true;
 let lastChange = Date.now();
 
-const container = document.getElementById('content-screen');
+const container = document.getElementById('clients');
 const progressBarWrapper = document.getElementById("progress-bar-wrapper");
 const progressBar = document.getElementById("progress-bar-selected");
 
@@ -21,7 +21,9 @@ container.addEventListener('mouseleave', () => {
     lastChange = Date.now();
     isHovering = false;
     updateProgressBar();
-    progressBarWrapper.style.display = "block";
+
+    if (scroll)
+        progressBarWrapper.style.display = "block";
 });
 
 class Timer {
@@ -82,6 +84,7 @@ function createSidebar() {
         btn.className = "side-btn";
         btn.onclick = () => {
             scroll = false;
+            progressBarWrapper.style.display = "none";
             showScreen(index);
         };
 
