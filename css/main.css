@@ -256,6 +256,12 @@
   text-decoration: none;
 }
 
+@media (max-width: 517px) {
+  .button-grid a {
+    width: calc(50% - 5px);
+  }
+}
+
 .button-grid button {
   display: flex;
   align-items: center;
