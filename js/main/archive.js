@@ -1,16 +1,29 @@
 window.addEventListener('load', async () => {
   const grid = document.getElementById("button-grid");
 
-  grid.appendChild(createButton("Client Binaries", `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=cb")} entries and counting!`, "browse.html?type=cb", "icons/minecraft.webp"));
-  grid.appendChild(createButton("Plugin Binaries", `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=pb")} entries and counting!`, "browse.html?type=pb", "icons/minecraft.webp"));
-  // We can add a proper link when there is something in user tools lmao
-  grid.appendChild(createButton("User Tools", "Coming soon!", "#", "icons/minecraft.webp"));
+  const cbButton = createButton("Client Binaries", "Loading...", "browse.html?type=cb", "icons/minecraft.webp");
+  const pbButton = createButton("Plugin Binaries", "Loading...", "browse.html?type=pb", "icons/minecraft.webp");
+  const utButton = createButton("User Tools", "Loading...", "browse.html?type=ut", "icons/minecraft.webp");
 
-  grid.appendChild(createButton("Client Sources", `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=cs")} entries and counting!`, "browse.html?type=cs", "icons/code.webp"));
-  grid.appendChild(createButton("Plugin Sources", `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=ps")} entries and counting!`, "browse.html?type=ps", "icons/code.webp"));
-  grid.appendChild(createButton("Development tools", `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=dt")} entries and counting!`, "browse.html?type=dt", "icons/code.webp"));
+  const csButton = createButton("Client Sources", "Loading...", "browse.html?type=cs", "icons/code.webp");
+  const psButton = createButton("Plugin Sources", "Loading...", "browse.html?type=ps", "icons/code.webp");
+  const dtButton = createButton("Development Tools", "Loading...", "browse.html?type=dt", "icons/code.webp");
+
+  grid.appendChild(cbButton);
+  grid.appendChild(pbButton);
+  grid.appendChild(utButton);
+  grid.appendChild(csButton);
+  grid.appendChild(psButton);
+  grid.appendChild(dtButton);
 
   document.body.appendChild(grid);
+
+  modifyDescription(cbButton, `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=cb")} entries and counting!`);
+  modifyDescription(pbButton, `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=pb")} entries and counting!`);
+  modifyDescription(utButton, `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=ut")} entries and counting!`);
+  modifyDescription(csButton, `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=cs")} entries and counting!`);
+  modifyDescription(psButton, `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=ps")} entries and counting!`);
+  modifyDescription(dtButton, `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=dt")} entries and counting!`);
 });
 
 function createButton(name, description, link, iconSrc) {
@@ -18,6 +31,7 @@ function createButton(name, description, link, iconSrc) {
   wrapper.href = link;
 
   const element = document.createElement("button");
+  element.id = "button";
 
   const buttonText = document.createElement("div");
   buttonText.className = "button-text";
@@ -43,6 +57,10 @@ function createButton(name, description, link, iconSrc) {
   wrapper.appendChild(element);
 
   return wrapper;
+}
+
+function modifyDescription(button, description) {
+  button.childNodes[0].childNodes[0].childNodes[1].textContent = description;
 }
 
 async function getEntries(url) {
