@@ -224,7 +224,8 @@
 }
 
 .archive {
-  align-self: center;
+  text-align: center;
+  border-bottom: 1px solid #444;
 }
 
 .section-header {
@@ -236,12 +237,20 @@
   margin-bottom: 0;
 }
 
+.sub-header {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #fff;
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
 .button-grid {
   display: flex;
   flex-wrap: wrap;
   width: calc(100% - 20px);
   gap: 10px;
-  padding: 10px;
+  padding: 10px 10px 0;
 }
 
 .button-grid a {
