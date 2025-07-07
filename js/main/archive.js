@@ -2,11 +2,11 @@ window.addEventListener('load', async () => {
   const grid = document.getElementById("button-grid");
 
   const cbButton = createButton("Client Binaries", "Loading...", "browse.html?type=cb", "icons/minecraft.webp");
-  const pbButton = createButton("Plugin Binaries", "Loading...", "browse.html?type=pb", "icons/minecraft.webp");
+  const pbButton = createButton("Server tool Binaries", "Loading...", "browse.html?type=pb", "icons/minecraft.webp");
   const utButton = createButton("User Tools", "Loading...", "browse.html?type=ut", "icons/minecraft.webp");
 
   const csButton = createButton("Client Sources", "Loading...", "browse.html?type=cs", "icons/code.webp");
-  const psButton = createButton("Plugin Sources", "Loading...", "browse.html?type=ps", "icons/code.webp");
+  const psButton = createButton("Server tool Sources", "Loading...", "browse.html?type=ps", "icons/code.webp");
   const dtButton = createButton("Development Tools", "Loading...", "browse.html?type=dt", "icons/code.webp");
 
   grid.appendChild(cbButton);

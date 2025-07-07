@@ -13,10 +13,10 @@ function prepareData(type) {
             name = "Client Sources";
             break;
         case 'pb':
-            name = "Plugin Binaries";
+            name = "Server tool Binaries";
             break;
         case 'ps':
-            name = "Plugin Sources";
+            name = "Server tool Sources";
             break;
         case 'ut':
             name = "User Tools";
