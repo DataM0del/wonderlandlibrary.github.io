@@ -303,17 +303,23 @@
 .button-text .label-main {
   font-size: 20px;
   margin-left: 10px;
+  text-wrap: nowrap;
 }
 
 .button-text .label-sub {
   font-size: 14px;
   opacity: 0.8;
   margin-left: 10px;
+  text-wrap: nowrap;
 }
 
 @media (max-width: 610px) {
   .button-text .label-sub {
     display: none;
+    text-wrap: wrap;
+  }
+  .button-text .label-main {
+    text-wrap: wrap;
   }
   .button-img {
     display: none;
@@ -330,6 +336,7 @@
   margin-left: 12px;
   margin-top: -2px;
   overflow: hidden;
+  object-fit: cover;
   mask-image: linear-gradient(to right, transparent, black);
 }
 
