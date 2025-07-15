@@ -1,5 +1,6 @@
 window.addEventListener('load', async () => {
-  const grid = document.getElementById("button-grid");
+  // Main
+  const grid1 = document.getElementById("button-grid-1");
 
   const cbButton = createButton("Client Binaries", "Loading...", "browse.html?type=cb", "icons/minecraft.webp");
   const pbButton = createButton("Server tool Binaries", "Loading...", "browse.html?type=pb", "icons/minecraft.webp");
@@ -9,13 +10,25 @@ window.addEventListener('load', async () => {
   const psButton = createButton("Server tool Sources", "Loading...", "browse.html?type=ps", "icons/code.webp");
   const dtButton = createButton("Development Tools", "Loading...", "browse.html?type=dt", "icons/code.webp");
 
-  grid.appendChild(cbButton);
-  grid.appendChild(pbButton);
-  grid.appendChild(utButton);
-  grid.appendChild(csButton);
-  grid.appendChild(psButton);
-  grid.appendChild(dtButton);
+  grid1.appendChild(cbButton);
+  grid1.appendChild(pbButton);
+  grid1.appendChild(utButton);
+  grid1.appendChild(csButton);
+  grid1.appendChild(psButton);
+  grid1.appendChild(dtButton);
 
+  // Scripts
+  const grid2 = document.getElementById("button-grid-2");
+
+  const liquidbounceButton = createButton("LiquidBounce", "Coming soon!", "javascript:alert('Coming soon!')", null, "icons/liquidbounce.png");
+  const astolfoButton = createButton("Astolfo", "Coming soon!", "javascript:alert('Coming soon!')", null, "icons/astolfo.png");
+  const ravenButton = createButton("Raven", "Coming soon!", "javascript:alert('Coming soon!')", null, "icons/raven.png");
+
+  grid2.appendChild(liquidbounceButton);
+  grid2.appendChild(astolfoButton);
+  grid2.appendChild(ravenButton);
+
+  // Updating descriptions after all the buttons have been added
   modifyDescription(cbButton, `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=cb")} entries and counting!`);
   modifyDescription(pbButton, `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=pb")} entries and counting!`);
   modifyDescription(utButton, `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=ut")} entries and counting!`);
@@ -24,7 +37,7 @@ window.addEventListener('load', async () => {
   modifyDescription(dtButton, `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=dt")} entries and counting!`);
 });
 
-function createButton(name, description, link, iconSrc) {
+function createButton(name, description, link, imgSrc = null, iconSrc = null) {
   const wrapper = document.createElement("a");
   wrapper.href = link;
 
@@ -46,12 +59,24 @@ function createButton(name, description, link, iconSrc) {
 
   element.appendChild(buttonText);
 
-  const icon = document.createElement("img");
-  icon.src = iconSrc;
-  icon.alt = "icon";
-  icon.className = "button-icon";
+  if (imgSrc) {
+    const image = document.createElement("img");
+    image.src = imgSrc;
+    image.alt = "icon";
+    image.className = "button-img";
 
-  element.appendChild(icon);
+    element.appendChild(image);
+  }
+
+  if (iconSrc) {
+    const image = document.createElement("img");
+    image.src = iconSrc;
+    image.alt = "icon";
+    image.className = "button-icon";
+
+    element.appendChild(image);
+  }
+
   wrapper.appendChild(element);
 
   return wrapper;

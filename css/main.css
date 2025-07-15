@@ -315,12 +315,15 @@
   .button-text .label-sub {
     display: none;
   }
+  .button-img {
+    display: none;
+  }
   .button-icon {
     display: none;
   }
 }
 
-.button-icon {
+.button-img {
   width: min(50%, 400px);
   height: calc(100% + 4px);
   margin-right: -6px;
@@ -328,6 +331,12 @@
   margin-top: -2px;
   overflow: hidden;
   mask-image: linear-gradient(to right, transparent, black);
+}
+
+.button-icon {
+  height: 70%;
+  aspect-ratio: 1 / 1;
+  margin-right: 8px;
 }
 
 .credits {
