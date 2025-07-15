@@ -329,3 +329,27 @@
   overflow: hidden;
   mask-image: linear-gradient(to right, transparent, black);
 }
+
+.credits {
+  display: grid;
+  grid: auto / 50% 50%;
+  grid-gap: 10px;
+
+  margin: 10px;
+}
+
+.credit-box {
+  width: 100%;
+  color: #eee;
+  border: none;
+  border-radius: 10px;
+  background-color: #323232;
+}
+
+.credit-header {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #fff;
+  margin-top: 15px;
+  margin-bottom: 0;
+}
