@@ -24,6 +24,15 @@ function prepareData(type) {
         case 'dt':
             name = "Development Tools";
             break;
+        case "s_lb":
+            name = "LiquidBounce scripts";
+            break;
+        case "s_rn":
+            name = "Raven scripts";
+            break;
+        case "s_ao":
+            name = "Astolfo scripts";
+            break;
         default:
             throw "Unknown type " + type;
     }

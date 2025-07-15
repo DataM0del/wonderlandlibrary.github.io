@@ -20,11 +20,11 @@ window.addEventListener('load', async () => {
   // Scripts
   const grid2 = document.getElementById("button-grid-2");
 
-  const liquidbounceButton = createButton("LiquidBounce", "Coming soon!", "javascript:alert('Coming soon!')", null, "icons/liquidbounce.png");
-  const astolfoButton = createButton("Astolfo", "Coming soon!", "javascript:alert('Coming soon!')", null, "icons/astolfo.png");
-  const ravenButton = createButton("Raven", "Coming soon!", "javascript:alert('Coming soon!')", null, "icons/raven.png");
+  const liquidBounceButton = createButton("LiquidBounce", "Loading...", "browse.html?type=s_lb", null, "icons/liquidbounce.png");
+  const astolfoButton = createButton("Astolfo", "Loading...", "browse.html?type=s_ao", null, "icons/astolfo.png");
+  const ravenButton = createButton("Raven", "Loading...", "browse.html?type=s_rn", null, "icons/raven.png");
 
-  grid2.appendChild(liquidbounceButton);
+  grid2.appendChild(liquidBounceButton);
   grid2.appendChild(astolfoButton);
   grid2.appendChild(ravenButton);
 
@@ -35,6 +35,10 @@ window.addEventListener('load', async () => {
   modifyDescription(csButton, `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=cs")} entries and counting!`);
   modifyDescription(psButton, `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=ps")} entries and counting!`);
   modifyDescription(dtButton, `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=dt")} entries and counting!`);
+
+  modifyDescription(liquidBounceButton, `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=s_lb")} entries and counting!`);
+  modifyDescription(astolfoButton, `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=s_ao")} entries and counting!`);
+  modifyDescription(ravenButton, `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=s_rn")} entries and counting!`);
 });
 
 function createButton(name, description, link, imgSrc = null, iconSrc = null) {
