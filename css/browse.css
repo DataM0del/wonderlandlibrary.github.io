@@ -6,7 +6,7 @@
 }
 
 .button-grid-container {
-    background-color: #1f1f1f;
+    backdrop-filter: blur(6px);
     border-radius: 20px;
     padding: 0 30px 20px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
@@ -53,7 +53,7 @@
     border: none;
     outline: none;
     font-size: 14px;
-    background-color: #2A2A2AFF;
+    background-color: #252525;
     color: #fff;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     transition: background-color 0.2s ease;
@@ -64,11 +64,11 @@
 }
 
 .search-bar input:focus {
-    background-color: #333333;
+    background-color: #2A2A2AFF;
 }
 
 .button-grid button {
-    background-color: #2A2A2AFF;
+    background-color: #252525;
     border: none;
     color: #fff;
     border-radius: 8px;
@@ -89,16 +89,15 @@
 }
 
 .button-grid button:hover {
-    background-color: #333333;
+    background-color: #2A2A2AFF;
 }
-
 
 .button-grid::-webkit-scrollbar {
     width: 8px;
 }
 
 .button-grid::-webkit-scrollbar-track {
-    background: #333;
+    background: #252525;
     border-radius: 4px;
 }
 

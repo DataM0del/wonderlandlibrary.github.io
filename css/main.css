@@ -224,6 +224,7 @@
 .archive {
   text-align: center;
   border-bottom: 1px solid #444;
+  backdrop-filter: blur(6px);
 }
 
 .section-header {
