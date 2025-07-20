@@ -236,6 +236,12 @@
   margin-bottom: 0;
 }
 
+.section-description {
+  font-size: 0.9rem;
+  color: #939393;
+  margin-top: 0;
+}
+
 .sub-header {
   font-size: 1.4rem;
   font-weight: 400;
