@@ -1,5 +1,6 @@
 let name = null;
-let entries = null;
+let secondary = null;
+let entries = new Map();
 let currentType = null;
 let buttonMap = new Map();
 
@@ -14,9 +15,11 @@ function prepareData(type) {
             break;
         case 'pb':
             name = "Server tool Binaries";
+            secondary = "https://gist.githubusercontent.com/ayaxperson/0e2e2e54558809fbbae3f2c9f1463c9b/raw/b1ce677e6be94d7e901d7a9c5104128ec1827d7a/gistfile1.txt";
             break;
         case 'ps':
             name = "Server tool Sources";
+            secondary = "https://gist.githubusercontent.com/ayaxperson/0e2e2e54558809fbbae3f2c9f1463c9b/raw/b1ce677e6be94d7e901d7a9c5104128ec1827d7a/gistfile2.txt";
             break;
         case 'ut':
             name = "User Tools";
@@ -44,12 +47,44 @@ function prepareData(type) {
             }
             return response.text();
         }).then(data => {
-            entries = data.split(/\r?\n/);
-            writeDataToUi();
+        for (let name of data.split(/\r?\n/)) {
+            const isSource = currentType === 'cs' || currentType === 'ps' || currentType === 'ut' || currentType === 'dt';
+            const link = function () {
+                if (isSource) {
+                    return `https://wonderland.sigmaclient.cloud/download.php?type=${currentType}&folder=&file=${name}`
+                } else {
+                    return `https://wonderland.sigmaclient.cloud/get.php?type=${currentType}&folder=${name}`
+                }
+            }();
+            entries.set(name, link);
+        }
+        writeDataToUi();
         })
         .catch(error => {
             console.error('Error fetching featured clients:', error);
         });
+
+    if (secondary != null) {
+        fetch(secondary)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.text();
+            }).then(data => {
+            for (let line of data.split(/\r?\n/)) {
+                const splitLine = line.split(":::");
+                const name = splitLine[0];
+                const link = splitLine[1];
+
+                entries.set(name, link);
+            }
+            writeDataToUi();
+        })
+            .catch(error => {
+                console.error('Error fetching featured clients:', error);
+            });
+    }
 }
 
 const entryGrid = document.getElementById('entry-grid');
@@ -59,31 +94,28 @@ function writeDataToUi() {
 
     entryGrid.innerHTML = "";
 
-    for (const [, value] of Object.entries(entries)) {
-        const trimmedValue = value.trim();
+    for (const [key, value] of sortMap(entries)) {
+        const trimmedValue = key.trim();
         if (!trimmedValue) continue;
 
-        const button = getButton(trimmedValue, trimmedValue);
+        const button = getButton(trimmedValue, trimmedValue, value);
         entryGrid.appendChild(button);
         buttonMap.set(trimmedValue, button);
     }
 }
 
-function getButton(name, entryName) {
+function sortMap(map) {
+    return new Map([...map.entries()].sort((a, b) => {
+        return a[0].localeCompare(b[0]);
+    }));
+}
+
+function getButton(name, entryName, link) {
     const wrapper = document.createElement('a');
     const button = document.createElement("button");
     button.innerText = name;
     wrapper.append(button);
-
-    const isSource = currentType === 'cs' || currentType === 'ps' || currentType === 'ut' || currentType === 'dt';
-
-    wrapper.href = function () {
-        if (isSource) {
-            return `https://wonderland.sigmaclient.cloud/download.php?type=${currentType}&folder=&file=${entryName}`
-        } else {
-            return `https://wonderland.sigmaclient.cloud/get.php?type=${currentType}&folder=${entryName}`
-        }
-    }();
+    wrapper.href = link;
 
     return wrapper;
 }
