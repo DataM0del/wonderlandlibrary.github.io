@@ -116,7 +116,7 @@ function showScreen(index) {
 }
 
 function getScreenFromJsonClient(client) {
-    const baseUrl = "https://jelloprg.sigmaclient.cloud/wonderland/data/";
+    const baseUrl = "https://wonderland.sigmaclient.cloud/data/";
     return {
         name: client.name,
         description: client.description,
@@ -128,7 +128,7 @@ function getScreenFromJsonClient(client) {
 }
 
 window.addEventListener('load', () => {
-    fetch('https://jelloprg.sigmaclient.cloud/wonderland/data/clients.json')
+    fetch('https://wonderland.sigmaclient.cloud/data/clients.json')
         .then(response => {
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             return response.json();

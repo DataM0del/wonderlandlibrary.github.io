@@ -29,16 +29,16 @@ window.addEventListener('load', async () => {
   grid2.appendChild(ravenButton);
 
   // Updating descriptions after all the buttons have been added
-  modifyDescription(cbButton, `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=cb")} entries and counting!`);
-  modifyDescription(pbButton, `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=pb")} entries and counting!`);
-  modifyDescription(utButton, `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=ut")} entries and counting!`);
-  modifyDescription(csButton, `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=cs")} entries and counting!`);
-  modifyDescription(psButton, `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=ps")} entries and counting!`);
-  modifyDescription(dtButton, `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=dt")} entries and counting!`);
+  modifyDescription(cbButton, `${await getEntries("https://wonderland.sigmaclient.cloud/getlist.php?type=cb")} entries and counting!`);
+  modifyDescription(pbButton, `${await getEntries("https://wonderland.sigmaclient.cloud/getlist.php?type=pb")} entries and counting!`);
+  modifyDescription(utButton, `${await getEntries("https://wonderland.sigmaclient.cloud/getlist.php?type=ut")} entries and counting!`);
+  modifyDescription(csButton, `${await getEntries("https://wonderland.sigmaclient.cloud/getlist.php?type=cs")} entries and counting!`);
+  modifyDescription(psButton, `${await getEntries("https://wonderland.sigmaclient.cloud/getlist.php?type=ps")} entries and counting!`);
+  modifyDescription(dtButton, `${await getEntries("https://wonderland.sigmaclient.cloud/getlist.php?type=dt")} entries and counting!`);
 
-  modifyDescription(liquidBounceButton, `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=s_lb")} entries and counting!`);
-  modifyDescription(astolfoButton, `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=s_ao")} entries and counting!`);
-  modifyDescription(ravenButton, `${await getEntries("https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=s_rn")} entries and counting!`);
+  modifyDescription(liquidBounceButton, `${await getEntries("https://wonderland.sigmaclient.cloud/getlist.php?type=s_lb")} entries and counting!`);
+  modifyDescription(astolfoButton, `${await getEntries("https://wonderland.sigmaclient.cloud/getlist.php?type=s_ao")} entries and counting!`);
+  modifyDescription(ravenButton, `${await getEntries("https://wonderland.sigmaclient.cloud/getlist.php?type=s_rn")} entries and counting!`);
 });
 
 function createButton(name, description, link, imgSrc = null, iconSrc = null) {

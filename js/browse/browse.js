@@ -37,7 +37,7 @@ function prepareData(type) {
             throw "Unknown type " + type;
     }
 
-    fetch('https://jelloprg.sigmaclient.cloud/wonderland/getlist.php?type=' + type)
+    fetch('https://wonderland.sigmaclient.cloud/getlist.php?type=' + type)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -79,9 +79,9 @@ function getButton(name, entryName) {
 
     wrapper.href = function () {
         if (isSource) {
-            return `https://jelloprg.sigmaclient.cloud/wonderland/download.php?type=${currentType}&folder=&file=${entryName}`
+            return `https://wonderland.sigmaclient.cloud/download.php?type=${currentType}&folder=&file=${entryName}`
         } else {
-            return `https://jelloprg.sigmaclient.cloud/wonderland/get.php?type=${currentType}&folder=${entryName}`
+            return `https://wonderland.sigmaclient.cloud/get.php?type=${currentType}&folder=${entryName}`
         }
     }();
 
