@@ -41,7 +41,7 @@ function prepareData(type) {
             throw "Unknown type " + type;
     }
 
-    fetch('https://wonderland.sigmaclient.cloud/data/getlist_new.php?type=' + type)
+    fetch('https://wonderland.sigmaclient.cloud/getlist.php?type=' + type)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
