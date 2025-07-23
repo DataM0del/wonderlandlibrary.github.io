@@ -3,6 +3,7 @@ let secondary = null;
 let entries = new Map();
 let currentType = null;
 let buttonMap = new Map();
+let sortByTime = false;
 
 function prepareData(type) {
     currentType = type;
@@ -48,15 +49,16 @@ function prepareData(type) {
             return response.text();
         }).then(data => {
         for (let name of data.split(/\r?\n/)) {
+            const split = name.split("::");
+            const fileName = split[0];
+            const timestamp = parseInt(split[1] || "0"); // Ensure it's a number
+
             const isSource = currentType === 'cs' || currentType === 'ps' || currentType === 'ut' || currentType === 'dt';
-            const link = function () {
-                if (isSource) {
-                    return `https://wonderland.sigmaclient.cloud/download.php?type=${currentType}&folder=&file=${name}`
-                } else {
-                    return `https://wonderland.sigmaclient.cloud/get.php?type=${currentType}&folder=${name}`
-                }
-            }();
-            entries.set(name, link);
+            const link = isSource
+                ? `https://wonderland.sigmaclient.cloud/download.php?type=${currentType}&folder=&file=${fileName}`
+                : `https://wonderland.sigmaclient.cloud/get.php?type=${currentType}&folder=${fileName}`;
+
+            entries.set(fileName, { link, timestamp });
         }
         writeDataToUi();
         })
@@ -77,7 +79,7 @@ function prepareData(type) {
                 const name = splitLine[0];
                 const link = splitLine[1];
 
-                entries.set(name, link);
+                entries.set(name, { link, timestamp: 0 });
             }
             writeDataToUi();
         })
@@ -91,22 +93,25 @@ const entryGrid = document.getElementById('entry-grid');
 
 function writeDataToUi() {
     document.getElementById('header').innerText = name;
-
     entryGrid.innerHTML = "";
 
     for (const [key, value] of sortMap(entries)) {
-        const trimmedValue = key.trim();
-        if (!trimmedValue) continue;
+        const trimmedKey = key.trim();
+        if (!trimmedKey) continue;
 
-        const button = getButton(trimmedValue, trimmedValue, value);
+        const button = getButton(trimmedKey, trimmedKey, value.link);
         entryGrid.appendChild(button);
-        buttonMap.set(trimmedValue, button);
+        buttonMap.set(trimmedKey, button);
     }
 }
 
 function sortMap(map) {
     return new Map([...map.entries()].sort((a, b) => {
-        return a[0].localeCompare(b[0]);
+        if (sortByTime) {
+            return (b[1].timestamp || 0) - (a[1].timestamp || 0); // Descending time
+        } else {
+            return a[0].localeCompare(b[0]); // Alphabetical
+        }
     }));
 }
 
@@ -147,4 +152,11 @@ window.addEventListener('load', () => {
     const type = searchParams.get('type');
 
     prepareData(type);
+});
+
+document.getElementById("sort-toggle").addEventListener("click", () => {
+    sortByTime = !sortByTime;
+    const button = document.getElementById("sort-toggle");
+    button.innerText = sortByTime ? "Sort: Newly uploaded" : "Sort: A → Z";
+    writeDataToUi();
 });
