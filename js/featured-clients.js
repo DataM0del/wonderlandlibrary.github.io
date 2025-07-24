@@ -11,20 +11,22 @@ const container = document.getElementById('clients');
 const progressBarWrapper = document.getElementById("progress-bar-wrapper");
 const progressBar = document.getElementById("progress-bar-selected");
 
-container.addEventListener('mouseenter', () => {
-    isHovering = true;
-    progressBarWrapper.style.display = "none";
-});
+if (container != null) {
+    container.addEventListener('mouseenter', () => {
+        isHovering = true;
+        progressBarWrapper.style.display = "none";
+    });
 
-container.addEventListener('mouseleave', () => {
-    scrollInterval.reset();
-    lastChange = Date.now();
-    isHovering = false;
-    updateProgressBar();
+    container.addEventListener('mouseleave', () => {
+        scrollInterval.reset();
+        lastChange = Date.now();
+        isHovering = false;
+        updateProgressBar();
 
-    if (scroll)
-        progressBarWrapper.style.display = "block";
-});
+        if (scroll)
+            progressBarWrapper.style.display = "block";
+    });
+}
 
 class Timer {
     constructor(callback, interval) {
@@ -115,6 +117,7 @@ function showScreen(index) {
     });
 }
 
+
 function getScreenFromJsonClient(client) {
     const baseUrl = "https://wonderland.sigmaclient.cloud/data/";
     return {
@@ -135,6 +138,11 @@ window.addEventListener('load', () => {
         })
         .then(data => {
             screens.push(...data.clients.map(getScreenFromJsonClient));
+            createDropdown();
+
+            if (container == null)
+                return;
+
             createSidebar();
             startAutoScroll();
         })
@@ -142,3 +150,19 @@ window.addEventListener('load', () => {
             console.error('Error fetching featured clients:', error);
         });
 });
+
+function createDropdown() {
+    screens.forEach(screen => {
+        createClientDropdownButton(screen.name, screen.link);
+    })
+}
+
+function createClientDropdownButton(name, link) {
+    const dropdown = document.getElementById("client-dropdown");
+    const wrapper = document.createElement("li");
+    const a = document.createElement("a");
+    a.href = link;
+    a.innerText = name;
+    wrapper.appendChild(a);
+    dropdown.appendChild(wrapper);
+}

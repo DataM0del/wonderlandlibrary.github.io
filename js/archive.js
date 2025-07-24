@@ -1,6 +1,19 @@
 window.addEventListener('load', async () => {
+  createArchiveDropdownButton("Client Binaries", "browse.html?type=cb");
+  createArchiveDropdownButton("Server tool Binaries", "browse.html?type=pb");
+  createArchiveDropdownButton("User Tools", "browse.html?type=ut");
+  createArchiveDropdownButton("Client Sources", "browse.html?type=cs");
+  createArchiveDropdownButton("Server tool Sources", "browse.html?type=ps");
+  createArchiveDropdownButton("Development Tools", "browse.html?type=dt");
+  createArchiveDropdownButton("LiquidBounce Scripts", "browse.html?type=s_lb");
+  createArchiveDropdownButton("Astolfo Scripts", "browse.html?type=s_ao");
+  createArchiveDropdownButton("Raven Scripts", "browse.html?type=s_rn");
+
   // Main
   const grid1 = document.getElementById("button-grid-1");
+
+  if (grid1 == null)
+    return;
 
   const cbButton = createButton("Client Binaries", "Loading...", "browse.html?type=cb", "icons/minecraft.webp");
   const pbButton = createButton("Server tool Binaries", "Loading...", "browse.html?type=pb", "icons/minecraft.webp");
@@ -84,6 +97,16 @@ function createButton(name, description, link, imgSrc = null, iconSrc = null) {
   wrapper.appendChild(element);
 
   return wrapper;
+}
+
+function createArchiveDropdownButton(name, link) {
+  const dropdown = document.getElementById("archive-dropdown");
+  const wrapper = document.createElement("li");
+  const a = document.createElement("a");
+  a.href = link;
+  a.innerText = name;
+  wrapper.appendChild(a);
+  dropdown.appendChild(wrapper);
 }
 
 function modifyDescription(button, description) {

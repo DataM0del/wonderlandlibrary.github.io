@@ -69,6 +69,57 @@ nav a:hover {
     }
 }
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown a {
+    display: inline-block;
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown-menu:hover {
+    display: block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #2a2a2a;
+    padding: 10px 0;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    z-index: 100;
+    margin-top: 0;
+    min-width: 150px;
+}
+
+.dropdown-menu li {
+    list-style: none;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    color: #ccc;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+    background-color: #3a3a3a;
+    color: #fff;
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown-menu:hover {
+    display: block;
+}
+
+
 /* particles (pasted) */
 
 .bg {

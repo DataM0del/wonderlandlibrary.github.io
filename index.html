@@ -32,10 +32,16 @@
 
 <header>
     <div class="left-section">
-        <span class="site-name">Wonderland Central</span>
+        <a class="site-name" href="/">Wonderland Central</a>
         <nav class="top-nav">
-            <a href="#">Featured Clients</a>
-            <a href="#">Archive</a>
+            <div class="dropdown">
+                <a href="#">Featured Clients</a>
+                <ul class="dropdown-menu" id="client-dropdown"></ul>
+            </div>
+            <div class="dropdown">
+                <a href="#">Archive</a>
+                <ul class="dropdown-menu" id="archive-dropdown"></ul>
+            </div>
         </nav>
     </div>
     <a href="https://discord.gg/BZhQFWYbhR">
@@ -97,7 +103,7 @@
 </section>
 
 </body>
-<script src="js/main/credits.js"></script>
-<script src="js/main/featured-clients.js"></script>
-<script src="js/main/archive.js"></script>
+<script src="js/credits.js"></script>
+<script src="js/featured-clients.js"></script>
+<script src="js/archive.js"></script>
 </html>
