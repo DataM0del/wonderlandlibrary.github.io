@@ -53,7 +53,7 @@ function prepareData(type) {
             const fileName = split[0];
             const timestamp = parseInt(split[1] || "0"); // Ensure it's a number
 
-            const isSource = currentType === 'cs' || currentType === 'ps' || currentType === 'ut' || currentType === 'dt';
+            const isSource = currentType === 'cs' || currentType === 'ps' || currentType === 'ut' || currentType === 'dt' || currentType.startsWith('s_');
             const link = isSource
                 ? `https://wonderland.sigmaclient.cloud/download.php?type=${currentType}&folder=&file=${encodeURIComponent(fileName)}`
                 : `https://wonderland.sigmaclient.cloud/get.php?type=${currentType}&folder=${encodeURIComponent(fileName)}`;
