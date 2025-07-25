@@ -55,8 +55,8 @@ function prepareData(type) {
 
             const isSource = currentType === 'cs' || currentType === 'ps' || currentType === 'ut' || currentType === 'dt';
             const link = isSource
-                ? `https://wonderland.sigmaclient.cloud/download.php?type=${currentType}&folder=&file=${fileName}`
-                : `https://wonderland.sigmaclient.cloud/get.php?type=${currentType}&folder=${fileName}`;
+                ? `https://wonderland.sigmaclient.cloud/download.php?type=${currentType}&folder=&file=${encodeURIComponent(fileName)}`
+                : `https://wonderland.sigmaclient.cloud/get.php?type=${currentType}&folder=${encodeURIComponent(fileName)}`;
 
             entries.set(fileName, { link, timestamp });
         }
