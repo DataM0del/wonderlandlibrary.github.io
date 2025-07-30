@@ -170,6 +170,7 @@ function getButton(name, entryName, link) {
     } else {
         const wrapper = document.createElement('a');
         wrapper.className = "grid-entry-wrapper";
+        wrapper.href = link;
 
         const gridEntry = document.createElement("div");
         gridEntry.className = "grid-entry";
