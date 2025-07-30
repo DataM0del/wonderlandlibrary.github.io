@@ -193,14 +193,14 @@ searchBar.addEventListener("input", () => {
     if (searchTerm && searchTerm.length >= 1) {
         for (const [name, button] of buttonMap) {
             if (name.toLowerCase().includes(searchTerm.toLowerCase())) {
-                button.style.display = "block";
+                button.style.display = "flex";
             } else {
                 button.style.display = "none";
             }
         }
     } else {
         for (const [, button] of buttonMap) {
-            button.style.display = "block";
+            button.style.display = "flex";
         }
     }
 });
