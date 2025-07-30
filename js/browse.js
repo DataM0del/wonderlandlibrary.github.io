@@ -5,6 +5,10 @@ let currentType = null;
 let buttonMap = new Map();
 let sortByTime = false;
 
+function isSource() {
+    return currentType === 'cs' || currentType === 'ps' || currentType === 'ut' || currentType === 'dt' || currentType.startsWith('s_');
+}
+
 function prepareData(type) {
     currentType = type;
     switch (type) {
@@ -53,8 +57,7 @@ function prepareData(type) {
             const fileName = split[0];
             const timestamp = parseInt(split[1] || "0"); // Ensure it's a number
 
-            const isSource = currentType === 'cs' || currentType === 'ps' || currentType === 'ut' || currentType === 'dt' || currentType.startsWith('s_');
-            const link = isSource
+            const link = isSource()
                 ? `https://wonderland.sigmaclient.cloud/download.php?type=${currentType}&folder=&file=${encodeURIComponent(fileName)}`
                 : `https://wonderland.sigmaclient.cloud/get.php?type=${currentType}&folder=${encodeURIComponent(fileName)}`;
 
@@ -92,6 +95,10 @@ function prepareData(type) {
 const entryGrid = document.getElementById('entry-grid');
 
 function writeDataToUi() {
+    if (isSource()) {
+        entryGrid.style.gridAutoRows = "130px"
+    }
+
     document.getElementById('header').innerText = name;
     entryGrid.innerHTML = "";
 
@@ -116,13 +123,65 @@ function sortMap(map) {
 }
 
 function getButton(name, entryName, link) {
-    const wrapper = document.createElement('a');
-    const button = document.createElement("button");
-    button.innerText = name;
-    wrapper.append(button);
-    wrapper.href = link;
+    if (isSource()) {
+        const gridEntry = document.createElement("div");
+        gridEntry.className = "grid-entry";
 
-    return wrapper;
+        const span = document.createElement("span");
+        span.innerText = name;
+        gridEntry.appendChild(span);
+
+        if (isSource()) {
+            const subButtonsWrapper = document.createElement("div");
+            subButtonsWrapper.className = "grid-entry-sub-button-container";
+
+            const downloadButtonWrapper = document.createElement("a");
+            downloadButtonWrapper.href = link;
+
+            const downloadButton = document.createElement("div");
+            downloadButton.className = "grid-sub-button";
+
+            const downloadText = document.createElement("span");
+            downloadText.innerText = "Download";
+            downloadButton.appendChild(downloadText);
+
+            downloadButtonWrapper.appendChild(downloadButton)
+            subButtonsWrapper.appendChild(downloadButtonWrapper);
+
+            //
+
+            const browseButtonWrapper = document.createElement("a");
+            browseButtonWrapper.href = "codeview.html?url=" + encodeURIComponent(link);
+
+            const browseButton = document.createElement("div");
+            browseButton.className = "grid-sub-button";
+
+            const browseText = document.createElement("span");
+            browseText.innerText = "Browse";
+            browseButton.appendChild(browseText);
+
+            browseButtonWrapper.appendChild(browseButton)
+            subButtonsWrapper.appendChild(browseButtonWrapper);
+
+            gridEntry.appendChild(subButtonsWrapper)
+        }
+
+        return gridEntry;
+    } else {
+        const wrapper = document.createElement('a');
+        wrapper.className = "grid-entry-wrapper";
+
+        const gridEntry = document.createElement("div");
+        gridEntry.className = "grid-entry";
+
+        const span = document.createElement("span");
+        span.innerText = name;
+        gridEntry.appendChild(span);
+
+        wrapper.append(gridEntry);
+
+        return wrapper;
+    }
 }
 
 const searchBar = document.getElementById("search-bar");

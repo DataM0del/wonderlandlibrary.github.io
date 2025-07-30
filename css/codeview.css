@@ -1,0 +1,150 @@
+html, body {
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.content-wrapper {
+    height: calc(100vh - 84px - 20px);
+    margin: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex: 1;
+}
+
+.loading-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.loading-box {
+    height: fit-content;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    background: rgba(35, 35, 35, 0.6);
+    border-radius: 10px;
+    color: #e0e0e0;
+
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.box {
+    height: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    background: rgba(35, 35, 35, 0.6);
+    border-radius: 10px;
+    color: #e0e0e0;
+}
+
+.box-code {
+    flex: 1;
+    font-family: "Roboto Mono", monospace;
+    border-radius: 10px;
+    overflow-x: auto;
+    white-space: pre;
+    font-size: 14px;
+}
+
+.box-files {
+    flex: 0 0 300px;
+    min-width: 0;
+    overflow-x: auto;
+}
+
+.code-container {
+    margin: 10px;
+}
+
+.directory {
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: visible;
+}
+
+ul {
+    cursor: pointer;
+    list-style-type: none;
+    padding-left: 1em;
+    user-select: none;
+    overflow-x: visible;
+}
+
+.expand-indicator {
+    display: inline-block;
+    margin-right: 4px;
+    transition: transform 0.2s ease;
+}
+
+.expand-indicator.expanded {
+    transform: rotate(90deg);
+}
+
+.dir-name {
+    font-weight: bold;
+}
+
+.color_top {
+    background: linear-gradient(45deg, #2193b0, #ba6ded);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.color_hidden {
+    color: rgb(173, 173, 173);
+}
+
+.color_src {
+    color: rgb(189, 237, 255);
+}
+
+.color_gradle {
+    color: rgb(223, 189, 255);
+}
+
+.color_java {
+    color: rgb(255, 229, 189);
+}
+
+.nested {
+    display: none;
+}
+
+.nested.active {
+    display: block;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #252525;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #2193b0, #ba6ded);
+    border-radius: 4px;
+}
