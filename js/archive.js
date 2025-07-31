@@ -10,9 +10,9 @@ window.addEventListener('load', async () => {
   createArchiveDropdownButton("Raven Scripts", "browse.html?type=s_rn");
 
   // Main
-  const grid1 = document.getElementById("button-grid-1");
+  const gridMain = document.getElementById("button-grid-main");
 
-  if (grid1 == null)
+  if (gridMain == null)
     return;
 
   const cbButton = createButton("Client Binaries", "Loading...", "browse.html?type=cb", "icons/minecraft.webp");
@@ -23,23 +23,31 @@ window.addEventListener('load', async () => {
   const psButton = createButton("Server tool Sources", "Loading...", "browse.html?type=ps", "icons/code.webp");
   const dtButton = createButton("Development Tools", "Loading...", "browse.html?type=dt", "icons/code.webp");
 
-  grid1.appendChild(cbButton);
-  grid1.appendChild(pbButton);
-  grid1.appendChild(utButton);
-  grid1.appendChild(csButton);
-  grid1.appendChild(psButton);
-  grid1.appendChild(dtButton);
+  gridMain.appendChild(cbButton);
+  gridMain.appendChild(pbButton);
+  gridMain.appendChild(utButton);
+  gridMain.appendChild(csButton);
+  gridMain.appendChild(psButton);
+  gridMain.appendChild(dtButton);
+
+  const gridSecondary = document.getElementById("button-grid-secondary");
+
+  const codeSnippetsButton = createButton("Code snippets", "Coming soon!", "#", "icons/code.webp");
+  const mediaButton = createButton("Media", "Coming soon!", "#", "icons/media.webp");
+
+  gridSecondary.appendChild(codeSnippetsButton);
+  gridSecondary.appendChild(mediaButton);
 
   // Scripts
-  const grid2 = document.getElementById("button-grid-2");
+  const gridScripts = document.getElementById("button-grid-scripts");
 
   const liquidBounceButton = createButton("LiquidBounce", "Loading...", "browse.html?type=s_lb", null, "icons/liquidbounce.png");
   const astolfoButton = createButton("Astolfo", "Loading...", "browse.html?type=s_ao", null, "icons/astolfo.png");
   const ravenButton = createButton("Raven", "Loading...", "browse.html?type=s_rn", null, "icons/raven.png");
 
-  grid2.appendChild(liquidBounceButton);
-  grid2.appendChild(astolfoButton);
-  grid2.appendChild(ravenButton);
+  gridScripts.appendChild(liquidBounceButton);
+  gridScripts.appendChild(astolfoButton);
+  gridScripts.appendChild(ravenButton);
 
   // Updating descriptions after all the buttons have been added
   modifyDescription(cbButton, `${await getEntries("https://wonderland.sigmaclient.cloud/getlist.php?type=cb")} entries and counting!`);
