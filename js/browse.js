@@ -151,7 +151,7 @@ function getButton(name, entryName, link) {
             //
 
             const browseButtonWrapper = document.createElement("a");
-            browseButtonWrapper.href = "codeview.html?url=" + encodeURIComponent(link);
+            browseButtonWrapper.href = "codeview.html?url=" + encodeURIComponent(link) + "&name=" + encodeURIComponent(entryName);
 
             const browseButton = document.createElement("div");
             browseButton.className = "grid-sub-button";

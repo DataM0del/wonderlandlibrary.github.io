@@ -66,10 +66,41 @@ html, body {
     font-size: 14px;
 }
 
-.box-files {
+.files-container {
+    display: flex;
+    flex-direction: column;
     flex: 0 0 300px;
     min-width: 0;
+}
+
+.box-header {
+    height: 50px;
+    flex: 0 0 50px;
+    margin-bottom: 10px;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.header {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #2193b0, #ba6ded);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+    z-index: 1;
+}
+
+.box-files {
+    overflow-y: auto;
     overflow-x: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .code-container {

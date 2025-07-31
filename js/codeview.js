@@ -10,9 +10,12 @@ window.addEventListener('load', async () => {
         loadingIndex = (loadingIndex + 1) % loadingStates.length;
     }, 500);
 
-    const url = getDownloadUrlFromQuery();
-    if (!isValidZipUrl(url)) {
-        alert("Invalid or missing ZIP URL.");
+    const params = new URLSearchParams(window.location.search);
+    const url = decodeURIComponent(params.get('url') || '');
+    const name = decodeURIComponent(params.get('name') || '');
+
+    if (!isValidZipUrl(url) || !name) {
+        alert("Invalid/missing params");
         return;
     }
 
@@ -24,17 +27,29 @@ window.addEventListener('load', async () => {
         clearInterval(loadingInterval);
         const element = document.getElementById("content-wrapper");
 
+        const filesContainer = document.createElement("div");
+        filesContainer.className = "files-container";
+
+        const topBox = document.createElement("div");
+        topBox.classList.add("box");
+        topBox.classList.add("box-header");
+
+        const header = document.createElement("p");
+        header.classList.add("header");
+        header.innerText = name;
+        topBox.appendChild(header);
+
         const filesBox = document.createElement("div");
-        filesBox.classList.add("box");
-        filesBox.classList.add("box-files");
+        filesBox.classList.add("box", "box-files");
         filesBox.id = "filetree";
-        element.appendChild(filesBox);
+
+        filesContainer.append(topBox, filesBox);
 
         const codeBox = document.createElement("div");
-        codeBox.classList.add("box");
-        codeBox.classList.add("box-code");
-        codeBox.id = "code"
-        element.appendChild(codeBox);
+        codeBox.classList.add("box", "box-code");
+        codeBox.id = "code";
+
+        element.append(filesContainer, codeBox);
 
         const fileTree = collapseTree(buildTree(Object.keys(files).sort()));
         renderFileTree(fileTree);
@@ -43,11 +58,6 @@ window.addEventListener('load', async () => {
         alert("Failed to load ZIP archive.");
     }
 });
-
-function getDownloadUrlFromQuery() {
-    const params = new URLSearchParams(window.location.search);
-    return decodeURIComponent(params.get('url') || '');
-}
 
 function isValidZipUrl(url) {
     return url.startsWith("https://wonderland.sigmaclient.cloud/download.php?type=") && url.endsWith(".zip");
