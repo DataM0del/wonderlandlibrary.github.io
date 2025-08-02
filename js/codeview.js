@@ -197,7 +197,7 @@ function renderTree(node, currentPath, depth, expandedPaths = new Set()) {
             dirName.classList.add('dir-name');
 
             processColors(dirName, name, true);
-            if (depth === 0) dirName.classList.add('color_top');
+            if (depth === 0 && entries.length === 1) dirName.classList.add('color_top');
 
             dir.append(indicator, dirName);
 
