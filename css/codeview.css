@@ -15,6 +15,17 @@ html, body {
     flex: 1;
 }
 
+@media (max-width: 700px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+    .files-container {
+        max-height: 30vh;
+    }
+    .box-code {
+    }
+}
+
 .loading-wrapper {
     display: flex;
     justify-content: center;
