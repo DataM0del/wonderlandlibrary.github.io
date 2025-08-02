@@ -73,13 +73,18 @@ html, body {
     min-width: 0;
 }
 
-.box-header {
+.box-small-top {
     height: 50px;
     flex: 0 0 50px;
     margin-bottom: 10px;
     justify-content: center;
     text-align: center;
     overflow: hidden;
+}
+
+.box-search {
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .header {

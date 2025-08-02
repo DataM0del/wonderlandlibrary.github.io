@@ -1,4 +1,6 @@
 let files = {};
+let lastExpandedPaths = new Set();
+let isSearching = false;
 
 window.addEventListener('load', async () => {
     const loadingText = document.getElementById("loading-text");
@@ -31,19 +33,33 @@ window.addEventListener('load', async () => {
         filesContainer.className = "files-container";
 
         const topBox = document.createElement("div");
-        topBox.classList.add("box");
-        topBox.classList.add("box-header");
+        topBox.classList.add("box", "box-small-top");
 
         const header = document.createElement("p");
         header.classList.add("header");
         header.innerText = name;
         topBox.appendChild(header);
 
+        const searchBox = document.createElement("div");
+        searchBox.classList.add("box", "box-small-top", "box-search");
+
+        const navContainer = document.createElement("div");
+        navContainer.className = "container-navigation";
+        const label = document.createElement("label");
+        const input = document.createElement("input");
+        input.id = "search-bar";
+        input.type = "text";
+        input.placeholder = "Search...";
+        input.addEventListener("input", () => update());
+        label.appendChild(input);
+        navContainer.append(label);
+        searchBox.appendChild(navContainer);
+
         const filesBox = document.createElement("div");
         filesBox.classList.add("box", "box-files");
         filesBox.id = "filetree";
 
-        filesContainer.append(topBox, filesBox);
+        filesContainer.append(topBox, searchBox, filesBox);
 
         const codeBox = document.createElement("div");
         codeBox.classList.add("box", "box-code");
@@ -51,8 +67,7 @@ window.addEventListener('load', async () => {
 
         element.append(filesContainer, codeBox);
 
-        const fileTree = collapseTree(buildTree(Object.keys(files).sort()));
-        renderFileTree(fileTree);
+        update();
     } catch (err) {
         console.error("Error loading ZIP:", err);
         alert("Failed to load ZIP archive.");
@@ -77,6 +92,45 @@ async function extractFiles(zip) {
         }
     }
     return extracted;
+}
+
+function update() {
+    const searchValue = document.getElementById("search-bar").value.trim().toLowerCase();
+    const container = document.getElementById('filetree');
+
+    const sortedPaths = Object.keys(files).sort();
+    const fileTree = collapseTree(buildTree(sortedPaths));
+
+    if (!isSearching)
+        lastExpandedPaths = getCurrentlyExpandedPaths();
+
+    if (!searchValue && isSearching)
+        isSearching = false;
+
+    container.innerHTML = '';
+
+    let expandedPaths;
+
+    if (searchValue) {
+        expandedPaths = new Set();
+        isSearching = true;
+        for (const fullPath of sortedPaths) {
+            const split = fullPath.split("/");
+            if (split[split.length - 1].toLowerCase().includes(searchValue)) {
+                console.log(fullPath);
+                const parts = fullPath.split('/');
+                let path = '';
+                for (let i = 0; i < parts.length - 1; i++) {
+                    path += parts[i] + '/';
+                    expandedPaths.add(path);
+                }
+            }
+        }
+    } else {
+        expandedPaths = new Set(lastExpandedPaths);
+    }
+
+    container.appendChild(renderTree(fileTree, '', 0, expandedPaths));
 }
 
 function buildTree(paths) {
@@ -115,13 +169,7 @@ function collapseTree(node) {
     return result;
 }
 
-function renderFileTree(tree) {
-    const container = document.getElementById('filetree');
-    container.innerHTML = '';
-    container.appendChild(renderTree(tree, '', 0));
-}
-
-function renderTree(node, currentPath, depth) {
+function renderTree(node, currentPath, depth, expandedPaths = new Set()) {
     const ul = document.createElement('ul');
 
     const entries = Object.entries(node).sort(([aName, aVal], [bName, bVal]) => {
@@ -153,8 +201,13 @@ function renderTree(node, currentPath, depth) {
 
             dir.append(indicator, dirName);
 
-            const nested = renderTree(child, `${currentPath}${name}/`, depth + 1);
+            const nested = renderTree(child, `${currentPath}${name}/`, depth + 1, expandedPaths);
             nested.classList.add('nested');
+
+            if (expandedPaths.has(`${currentPath}${name}/`)) {
+                nested.classList.add('active');
+                indicator.classList.add('expanded');
+            }
 
             dir.addEventListener('click', () => {
                 nested.classList.toggle('active');
@@ -168,7 +221,6 @@ function renderTree(node, currentPath, depth) {
             fileEl.classList.add('file');
 
             processColors(fileEl, name, false);
-            console.log(currentPath + name);
             fileEl.addEventListener('click', () => displayFileContent(currentPath + name, name));
 
             li.appendChild(fileEl);
@@ -179,6 +231,50 @@ function renderTree(node, currentPath, depth) {
 
     return ul;
 }
+
+function getCurrentlyExpandedPaths() {
+    const paths = new Set();
+    const items = document.querySelectorAll('#filetree span.directory');
+
+    items.forEach(dirSpan => {
+        const indicator = dirSpan.querySelector('.expand-indicator');
+        if (indicator && indicator.classList.contains('expanded')) {
+            let path = '';
+            let current = dirSpan;
+            while (current && current.closest('li')) {
+                const dir = current.querySelector('.dir-name');
+                if (dir) path = dir.textContent + '/' + path;
+                current = current.closest('li').parentElement.closest('li')?.querySelector('.directory');
+            }
+            paths.add(path);
+        }
+    });
+
+    return paths;
+}
+
+function processColors(el, name, isDir) {
+    if (name.startsWith('.')) el.classList.add('color_hidden');
+
+    if (isDir) {
+        if (name === 'src' || name.startsWith('src')) el.classList.add('color_src');
+        if (name === 'gradle') el.classList.add('color_gradle');
+    } else {
+        const gradleFiles = new Set([
+            "build.gradle",
+            "gradle.properties",
+            "gradlew",
+            "gradlew.bat",
+            "settings.gradle",
+            "gradle-wrapper.jar",
+            "gradle-wrapper.properties"
+        ]);
+
+        if (gradleFiles.has(name)) el.classList.add('color_gradle');
+        if (name.endsWith('.java')) el.classList.add('color_java');
+    }
+}
+
 function displayFileContent(fullPath, filename) {
     let content = files[fullPath];
 
@@ -225,27 +321,4 @@ function displayFileContent(fullPath, filename) {
     }
 
     codeDiv.innerHTML = `<pre class="code-container"><code class="language-${lang}">${Prism.highlight(content, Prism.languages[lang] || Prism.languages.clike, lang)}</code></pre>`;
-}
-
-
-function processColors(el, name, isDir) {
-    if (name.startsWith('.')) el.classList.add('color_hidden');
-
-    if (isDir) {
-        if (name === 'src' || name.startsWith('src')) el.classList.add('color_src');
-        if (name === 'gradle') el.classList.add('color_gradle');
-    } else {
-        const gradleFiles = new Set([
-            "build.gradle",
-            "gradle.properties",
-            "gradlew",
-            "gradlew.bat",
-            "settings.gradle",
-            "gradle-wrapper.jar",
-            "gradle-wrapper.properties"
-        ]);
-
-        if (gradleFiles.has(name)) el.classList.add('color_gradle');
-        if (name.endsWith('.java')) el.classList.add('color_java');
-    }
 }
