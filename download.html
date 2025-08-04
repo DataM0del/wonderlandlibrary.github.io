@@ -15,9 +15,10 @@
           rel=" stylesheet">
     <link rel="stylesheet" href="css/base.css"/>
     <link rel="stylesheet" href="css/particles.css"/>
-    <link rel="stylesheet" href="css/browse.css"/>
+    <link rel="stylesheet" href="css/download.css"/>
 </head>
 <body>
+
 <div class="bg">
     <div class="page-bg"></div>
 
@@ -28,6 +29,7 @@
         <div class="particle particle-4"></div>
     </div>
 </div>
+
 <header>
     <div class="left-section">
         <a class="site-name" href="/">Wonderland Central</a>
@@ -46,31 +48,12 @@
         <img src="icons/discord.png" alt="Logo" class="logo"/>
     </a>
 </header>
-<main class="button-grid-wrapper">
-    <div class="button-grid-container">
-        <div class="grid-header">
-            <h2 class="grid-title" id="header">Loading</h2>
 
-            <div class="grid-sub">
-                <h2>We share content as it is originally/when we get it (cracks, etc.), and therefore it may contain undesirable telemetry or even malware.</h2>
-                <h2>Always run software you aren't 100% sure is safe in a VM!</h2>
-            </div>
+<div class="box-container" id="box-container">
 
-            <div class="container-navigation">
-                <label>
-                    <input id="search-bar" type="text" placeholder="Search..." />
-                </label>
-                <button id="sort-toggle" style="margin-left: 10px;">Sort: A → Z</button>
-            </div>
-        </div>
-
-        <div class="button-grid" id="entry-grid">
-            <!--filled from browse.js-->
-        </div>
-    </div>
-</main>
+</div>
 
 <script src="js/archive.js"></script>
 <script src="js/featured-clients.js"></script>
-<script src="js/browse.js"></script>
+<script src="js/download.js"></script>
 </body>
