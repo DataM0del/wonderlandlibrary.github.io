@@ -105,8 +105,18 @@ function showScreen(index) {
     document.getElementById("screen-image-1").src = screen.imageUrl1;
     document.getElementById("screen-image-2").src = screen.imageUrl2;
     document.getElementById("get-button-container").href = screen.link;
-    document.getElementById("get-button").innerHTML =
-        screen.price === 0 ? "GET (FREE)" : `GET (${screen.price}€)`;
+
+    switch (screen.price) {
+        case 0:
+            document.getElementById("get-button").innerHTML = "GET (FREE)";
+            break;
+        case -1:
+            document.getElementById("get-button").innerHTML = "COMING SOON!";
+            break;
+        default:
+            document.getElementById("get-button").innerHTML = `GET (${screen.price}€)`;
+            break;
+    }
 
     buttons.forEach((btnIndex, btn) => {
         if (btnIndex === index) {
