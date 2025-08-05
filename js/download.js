@@ -1,51 +1,14 @@
-/*
-    This is what the url component should be like:
-    {
-    "component": "blablabla";
-    "files": [
-            {
-                "name: "File McFileface von Filenstadt",
-                "url": "https://wonderland.sigmaclient.cloud/...",
-                "md5": "blablabla",
-                "dateUploaded": "11.09.2001"
-            },
-            {
-                "name: "File McFileface von Filenstadt",
-                "url": "https://wonderland.sigmaclient.cloud/...",
-                "md5": "blablabla",
-                "dateUploaded": "11.09.2001"
-            }
-        ]
-    }
-    encoded in base64
- */
-
-/*
-    <div class="box">
-        <div class="file-data">
-            <p class="title">File McFileface von Filestadt</p>
-            <p class="sub">MD5: 649B1AF10B4C526EABB236E6303418FD</p>
-            <p class="sub">Date added: 11.09.2001</p>
-            <p class="sub">Download valid until: 12:05</p>
-        </div>
-
-        <div class="buttons">
-            <button>Download</button>
-            <button>Share</button>
-        </div>
-    </div>
- */
+let source = "";
 
 window.addEventListener('load', async () => {
     const params = new URLSearchParams(window.location.search);
     const files = decodeURIComponent(params.get('files') || '');
+    source = decodeURIComponent(params.get('source') || '');
 
     if (!files)
         return;
 
     const filesDecoded = JSON.parse(atob(files));
-
-    console.log(filesDecoded);
 
     for (const fileObject of filesDecoded) {
         if (!fileObject.url.startsWith('download.php'))
@@ -80,11 +43,13 @@ window.addEventListener('load', async () => {
         downloadButtonWrapper.href = "https://wonderland.sigmaclient.cloud/" + fileObject.url;
         downloadButtonWrapper.appendChild(downloadButton);
 
-        const shareButtonWrapper = document.createElement('a');
-        const shareButton = document.createElement('button');
-        shareButton.innerText = "Share";
-        shareButtonWrapper.href = "javascript:share()"
-        shareButtonWrapper.appendChild(shareButton);
+        if (source) {
+            const shareButtonWrapper = document.createElement('a');
+            const shareButton = document.createElement('button');
+            shareButton.innerText = "Share";
+            shareButtonWrapper.href = "javascript:share()"
+            shareButtonWrapper.appendChild(shareButton);
+        }
 
         buttonsDiv.append(downloadButtonWrapper, shareButtonWrapper);
 
@@ -95,7 +60,7 @@ window.addEventListener('load', async () => {
 });
 
 function share() {
-    navigator.clipboard.writeText(window.location.search).then(function() {
+    navigator.clipboard.writeText("https://wonderland.sigmaclient.cloud/" + source).then(function() {
         window.alert('URL copied to clipboard!');
     }, function(err) {
         console.error('Failed to copy URL to clipboard! ', err);
