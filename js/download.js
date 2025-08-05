@@ -43,15 +43,16 @@ window.addEventListener('load', async () => {
         downloadButtonWrapper.href = "https://wonderland.sigmaclient.cloud/" + fileObject.url;
         downloadButtonWrapper.appendChild(downloadButton);
 
+        buttonsDiv.appendChild(downloadButtonWrapper);
+
         if (source) {
             const shareButtonWrapper = document.createElement('a');
             const shareButton = document.createElement('button');
             shareButton.innerText = "Share";
             shareButtonWrapper.href = "javascript:share()"
             shareButtonWrapper.appendChild(shareButton);
+            buttonsDiv.appendChild(shareButtonWrapper);
         }
-
-        buttonsDiv.append(downloadButtonWrapper, shareButtonWrapper);
 
         boxDiv.append(fileDataDiv, buttonsDiv);
 
