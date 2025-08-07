@@ -61,7 +61,7 @@ window.addEventListener('load', async () => {
 });
 
 function share() {
-    navigator.clipboard.writeText(encodeURI("https://wonderland.sigmaclient.cloud/" + source)).then(function() {
+    navigator.clipboard.writeText(encodeURI("https://wonderland.sigmaclient.cloud/" + (source.startsWith("/") ? source.substring(1) : source))).then(function() {
         window.alert('URL copied to clipboard!');
     }, function(err) {
         console.error('Failed to copy URL to clipboard! ', err);
