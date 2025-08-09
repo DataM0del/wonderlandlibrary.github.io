@@ -1,6 +1,14 @@
 let files = {};
 let lastExpandedPaths = new Set();
 let isSearching = false;
+require.config({
+    paths: {
+        vs: "https://cdn.jsdelivr.net/npm/monaco-editor@0.52.2/dev/vs",
+    },
+});
+
+let editor;
+let codeBox;
 
 window.addEventListener('load', async () => {
     const loadingText = document.getElementById("loading-text");
@@ -61,9 +69,41 @@ window.addEventListener('load', async () => {
 
         filesContainer.append(topBox, searchBox, filesBox);
 
-        const codeBox = document.createElement("div");
+        codeBox = document.createElement("div");
         codeBox.classList.add("box", "box-code");
         codeBox.id = "code";
+
+        require(["vs/editor/editor.main"], () => {
+            editor = monaco.editor.create(codeBox, {
+                value: "hello!!! select a file to view its contents",
+                theme: "vs-dark",
+                fontSize: "14px",
+                fontFamily: "'JetBrains Mono', Consolas, 'Courier New', monospace",
+                folding: true,
+                dragAndDrop: true,
+                links: true,
+                minimap: {
+                    enabled: true,
+                },
+                showFoldingControls: "always",
+                smoothScrolling: true,
+                stopRenderingLineAfter: 6500,
+                cursorBlinking: "smooth",
+                cursorSmoothCaretAnimation: true,
+                foldingHighlight: false,
+                fontLigatures: true,
+                readOnly: true,
+                readOnlyMessage: {
+                    value: "This file is read-only you goober!!!"
+                },
+                suggest: {
+                    snippetsPreventQuickSuggestions: false,
+                },
+                padding: {
+                    top: 24,
+                },
+            });
+        });
 
         element.append(filesContainer, codeBox);
 
@@ -158,7 +198,7 @@ function collapseTree(node) {
             child && typeof child === 'object' &&
             Object.keys(child).length === 1 &&
             child[Object.keys(child)[0]] !== null
-            ) {
+        ) {
             const [nextKey] = Object.keys(child);
             currentKey += '/' + nextKey;
             child = child[nextKey];
@@ -306,19 +346,18 @@ function displayFileContent(fullPath, filename) {
         html: 'markup', xml: 'markup', svg: 'markup',
         css: 'css', scss: 'scss', sass: 'sass', less: 'less',
         yaml: 'yaml', yml: 'yaml', ini: 'ini', toml: 'toml',
-        md: 'markdown', markdown: 'markdown', txt: 'clike',
+        md: 'markdown', markdown: 'markdown', txt: 'c',
         dockerfile: 'docker', makefile: 'makefile', cmake: 'cmake',
         asm: 'asm6502', lua: 'lua', r: 'r', vb: 'vbnet',
         tex: 'latex', graphql: 'graphql'
     };
 
-    let lang = languageMap[extension] || 'clike';
+    let language = languageMap[extension] ?? 'c';
 
-    const codeDiv = document.getElementById('code');
-    if (!content || isProbablyBinary(content)) {
-        lang = "markdown";
+    if (content === undefined || content === null || isProbablyBinary(content)) {
+        language = "markdown";
         content = `Unable to display ${filename}`;
     }
-
-    codeDiv.innerHTML = `<pre class="code-container"><code class="language-${lang}">${Prism.highlight(content, Prism.languages[lang] || Prism.languages.clike, lang)}</code></pre>`;
+    editor.setValue(content);
+    monaco.editor.setModelLanguage(editor.getModel(), language);
 }
